@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.25.0)
+project("geoInf")
+add_executable("main" "src/main.c" "src/include/utility.c")
+include_directories(/usr/include)
+target_link_libraries(main PUBLIC GL GLEW glfw)
