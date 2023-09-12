@@ -1,0 +1,3 @@
+/home/cm/codes/c++/geoInf/CMakeFiles/main.dir
+/home/cm/codes/c++/geoInf/CMakeFiles/edit_cache.dir
+/home/cm/codes/c++/geoInf/CMakeFiles/rebuild_cache.dir
