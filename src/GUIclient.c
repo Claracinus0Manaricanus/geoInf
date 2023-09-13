@@ -65,3 +65,12 @@ int main(){
     glfwTerminate();
     return 0;
 }
+
+/*
+Graphical User Interface for geoInf project.
+This program uses opengl and glfw for visuals.
+It is a desktop application made for X window systems.
+*/
+
+//idea board:
+//dearImGui
