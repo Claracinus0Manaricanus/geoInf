@@ -8,3 +8,9 @@ Veri kaydetme ve kullanma platformu.
 
 # Explanation:
 Data import and usage platform.
+
+# Setup
+//WIP
+
+# Usage
+//WIP
