@@ -11,3 +11,9 @@ GLFWwindow* cm_CreateWindow(int width, int height, const char* name);
 //needs error message return //char* error
 
 #endif
+
+/*
+utility.h supplies utilities such as window and opengl context creation.
+Its usage is meant to tidy up the code thats repetitive or constant.
+It also supplies functions for interface programs to use.
+*/
