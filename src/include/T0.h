@@ -15,3 +15,7 @@ struct Vec3{
 };
 
 #endif
+
+/*
+T0.h defines structs, constants and the like for other programs to use.
+*/

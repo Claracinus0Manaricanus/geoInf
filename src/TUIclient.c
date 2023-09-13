@@ -1,0 +1,4 @@
+/*
+Text User Interface for geoInf project.
+This file uses dataController to acces the database.
+*/
