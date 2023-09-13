@@ -1,5 +1,6 @@
 #include "utility.h"
 
+//constructors
 GLFWwindow* cm_CreateWindow(int width, int height, const char* name){
     GLFWwindow* win=glfwCreateWindow(width,height,name,NULL,NULL);
     if(win==NULL){
@@ -12,4 +13,9 @@ GLFWwindow* cm_CreateWindow(int width, int height, const char* name){
         }
     }
     return win;
+}
+
+//memory freeing
+int freeGeoObj(struct geoObj* toFree){
+    return 0;
 }

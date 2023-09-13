@@ -3,8 +3,9 @@
 
 #include <sqlite3.h>
 #include <stdint.h>
+#include "../include/T0.h"
 
-
+int getFromTable(char* tableName, char* objectName, struct geoObj* ret);//gets an object from a table using their names
 
 #endif
 

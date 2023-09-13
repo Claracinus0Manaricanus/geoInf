@@ -1,6 +1,7 @@
 #ifndef T0_H
 #define T0_H
 
+//math purposes
 struct Vec2{
     float x,y;
 };
@@ -12,6 +13,15 @@ struct Hitbox{
 
 struct Vec3{
     float x,y,z;
+};
+
+//data holder
+struct geoObj{
+    int ID;
+    char* name;
+    char* soilType;
+    char* flora;
+    unsigned char* image;
 };
 
 #endif
