@@ -7,6 +7,9 @@
 //change the function to use select more efficiently with:
 //select * from geoObj where name=<objectName>;
 //remove while loop
+//add different functions for different tables
+//or add a switch statement (using void* for returning data)
+//functions need error checking
 int getFromTable(char* tableName, char* objectName, struct geoObj* ret){
     //opening database
     sqlite3* database;
@@ -39,6 +42,11 @@ int getFromTable(char* tableName, char* objectName, struct geoObj* ret){
         sqlite3_finalize(STMT_Select);
         sqlite3_close(database);
     }else{
+        ret->ID=-1;
+        ret->name=NULL;
+        ret->soilType=NULL;
+        ret->flora=NULL;
+        ret->image=NULL;
         sqlite3_finalize(STMT_Select);
         sqlite3_close(database);
         return 1;

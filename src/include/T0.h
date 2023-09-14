@@ -29,3 +29,9 @@ struct geoObj{
 /*
 T0.h defines structs, constants and the like for other programs to use.
 */
+
+/*
+iklim
+toprak türü
+bitki örtüsü
+*/

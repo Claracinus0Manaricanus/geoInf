@@ -17,7 +17,7 @@ int main(int argc, char** argv){
             "name: %s\n"
             "soilType: %s\n"
             "flora: %s\n"
-            "image is work in progress\n",
+            "TUI doesn't support images.\n",
             ret.ID,ret.name,ret.soilType,ret.flora
         );
     }else{
