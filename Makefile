@@ -117,24 +117,113 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named GUI
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+GUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GUI
+.PHONY : GUI
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+GUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/build
+.PHONY : GUI/fast
+
+#=============================================================================
+# Target rules for targets named TUI
+
+# Build rule for target.
+TUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TUI
+.PHONY : TUI
+
+# fast build rule for target.
+TUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/build
+.PHONY : TUI/fast
+
+src/GUIclient.o: src/GUIclient.c.o
+.PHONY : src/GUIclient.o
+
+# target to build an object file
+src/GUIclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.o
+.PHONY : src/GUIclient.c.o
+
+src/GUIclient.i: src/GUIclient.c.i
+.PHONY : src/GUIclient.i
+
+# target to preprocess a source file
+src/GUIclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.i
+.PHONY : src/GUIclient.c.i
+
+src/GUIclient.s: src/GUIclient.c.s
+.PHONY : src/GUIclient.s
+
+# target to generate assembly for a file
+src/GUIclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.s
+.PHONY : src/GUIclient.c.s
+
+src/TUIclient.o: src/TUIclient.c.o
+.PHONY : src/TUIclient.o
+
+# target to build an object file
+src/TUIclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.o
+.PHONY : src/TUIclient.c.o
+
+src/TUIclient.i: src/TUIclient.c.i
+.PHONY : src/TUIclient.i
+
+# target to preprocess a source file
+src/TUIclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.i
+.PHONY : src/TUIclient.c.i
+
+src/TUIclient.s: src/TUIclient.c.s
+.PHONY : src/TUIclient.s
+
+# target to generate assembly for a file
+src/TUIclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.s
+.PHONY : src/TUIclient.c.s
+
+src/database/dataController.o: src/database/dataController.c.o
+.PHONY : src/database/dataController.o
+
+# target to build an object file
+src/database/dataController.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.o
+.PHONY : src/database/dataController.c.o
+
+src/database/dataController.i: src/database/dataController.c.i
+.PHONY : src/database/dataController.i
+
+# target to preprocess a source file
+src/database/dataController.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.i
+.PHONY : src/database/dataController.c.i
+
+src/database/dataController.s: src/database/dataController.c.s
+.PHONY : src/database/dataController.s
+
+# target to generate assembly for a file
+src/database/dataController.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.s
+.PHONY : src/database/dataController.c.s
 
 src/include/utility.o: src/include/utility.c.o
 .PHONY : src/include/utility.o
 
 # target to build an object file
 src/include/utility.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/include/utility.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.o
 .PHONY : src/include/utility.c.o
 
 src/include/utility.i: src/include/utility.c.i
@@ -142,7 +231,8 @@ src/include/utility.i: src/include/utility.c.i
 
 # target to preprocess a source file
 src/include/utility.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/include/utility.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.i
 .PHONY : src/include/utility.c.i
 
 src/include/utility.s: src/include/utility.c.s
@@ -150,32 +240,9 @@ src/include/utility.s: src/include/utility.c.s
 
 # target to generate assembly for a file
 src/include/utility.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/include/utility.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.s
 .PHONY : src/include/utility.c.s
-
-src/main.o: src/main.c.o
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.o
-.PHONY : src/main.c.o
-
-src/main.i: src/main.c.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.i
-.PHONY : src/main.c.i
-
-src/main.s: src/main.c.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.s
-.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -185,13 +252,20 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main"
+	@echo "... GUI"
+	@echo "... TUI"
+	@echo "... src/GUIclient.o"
+	@echo "... src/GUIclient.i"
+	@echo "... src/GUIclient.s"
+	@echo "... src/TUIclient.o"
+	@echo "... src/TUIclient.i"
+	@echo "... src/TUIclient.s"
+	@echo "... src/database/dataController.o"
+	@echo "... src/database/dataController.i"
+	@echo "... src/database/dataController.s"
 	@echo "... src/include/utility.o"
 	@echo "... src/include/utility.i"
 	@echo "... src/include/utility.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 .PHONY : help
 
 

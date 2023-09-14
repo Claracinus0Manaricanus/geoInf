@@ -5,10 +5,14 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stdint.h>
+#include <stdlib.h>
 
-//creates a window and makes it current opengl context
-GLFWwindow* cm_CreateWindow(int width, int height, const char* name);
+//constructors
+GLFWwindow* cm_CreateWindow(int width, int height, const char* name);//creates a window and makes it current opengl context
 //needs error message return //char* error
+
+//memory freeing
+int freeGeoObj(struct geoObj* toFree);//frees given geoObj struct
 
 #endif
 

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/GUI.dir/src/GUIclient.c.o CMakeFiles/GUI.dir/src/include/utility.c.o CMakeFiles/GUI.dir/src/database/dataController.c.o -o GUI  -lGL -lGLEW -lglfw -lsqlite3 
