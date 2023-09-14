@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 //constructors
 GLFWwindow* cm_CreateWindow(int width, int height, const char* name);//creates a window and makes it current opengl context

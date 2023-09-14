@@ -8,7 +8,6 @@ int main(int argc, char** argv){
     char input[255]={0};
     printf("Enter a climate name:\n>");
     scanf("%s",&input);
-    printf("%s\n",input);
 
     struct geoObj ret;
     if(getFromTable("geoObj\0",input,&ret)==0){
@@ -26,7 +25,7 @@ int main(int argc, char** argv){
     }
 
     //free memory
-    //WIP currently has memory leaks
+    freeGeoObj(&ret);
 
     //terminate
     return 0;
