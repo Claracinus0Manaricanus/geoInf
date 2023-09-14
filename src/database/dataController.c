@@ -3,6 +3,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+//change the function to use select more efficiently with:
+//select * from geoObj where name=<objectName>;
+//remove while loop
 int getFromTable(char* tableName, char* objectName, struct geoObj* ret){
     //opening database
     sqlite3* database;
