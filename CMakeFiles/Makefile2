@@ -83,12 +83,12 @@ clean: CMakeFiles/TUI.dir/clean
 CMakeFiles/GUI.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=1,2,3 "Built target GUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=1,2,3,4 "Built target GUI"
 .PHONY : CMakeFiles/GUI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 0
 .PHONY : CMakeFiles/GUI.dir/rule
@@ -109,12 +109,12 @@ CMakeFiles/GUI.dir/clean:
 CMakeFiles/TUI.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=4,5,6 "Built target TUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=5,6,7,8 "Built target TUI"
 .PHONY : CMakeFiles/TUI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 0
 .PHONY : CMakeFiles/TUI.dir/rule

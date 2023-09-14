@@ -190,6 +190,33 @@ src/TUIclient.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.s
 .PHONY : src/TUIclient.c.s
 
+src/database/dataController.o: src/database/dataController.c.o
+.PHONY : src/database/dataController.o
+
+# target to build an object file
+src/database/dataController.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.o
+.PHONY : src/database/dataController.c.o
+
+src/database/dataController.i: src/database/dataController.c.i
+.PHONY : src/database/dataController.i
+
+# target to preprocess a source file
+src/database/dataController.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.i
+.PHONY : src/database/dataController.c.i
+
+src/database/dataController.s: src/database/dataController.c.s
+.PHONY : src/database/dataController.s
+
+# target to generate assembly for a file
+src/database/dataController.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.s
+.PHONY : src/database/dataController.c.s
+
 src/include/utility.o: src/include/utility.c.o
 .PHONY : src/include/utility.o
 
@@ -233,6 +260,9 @@ help:
 	@echo "... src/TUIclient.o"
 	@echo "... src/TUIclient.i"
 	@echo "... src/TUIclient.s"
+	@echo "... src/database/dataController.o"
+	@echo "... src/database/dataController.i"
+	@echo "... src/database/dataController.s"
 	@echo "... src/include/utility.o"
 	@echo "... src/include/utility.i"
 	@echo "... src/include/utility.s"

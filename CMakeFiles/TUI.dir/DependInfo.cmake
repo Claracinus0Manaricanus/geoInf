@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/cm/codes/c++/geoInf/src/TUIclient.c" "CMakeFiles/TUI.dir/src/TUIclient.c.o" "gcc" "CMakeFiles/TUI.dir/src/TUIclient.c.o.d"
+  "/home/cm/codes/c++/geoInf/src/database/dataController.c" "CMakeFiles/TUI.dir/src/database/dataController.c.o" "gcc" "CMakeFiles/TUI.dir/src/database/dataController.c.o.d"
   "/home/cm/codes/c++/geoInf/src/include/utility.c" "CMakeFiles/TUI.dir/src/include/utility.c.o" "gcc" "CMakeFiles/TUI.dir/src/include/utility.c.o.d"
   )
 
