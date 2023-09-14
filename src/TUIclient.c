@@ -1,11 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "include/utility.h"
 #include "database/dataController.h"
 
 int main(int argc, char** argv){
 
+    char input[255]={0};
+    printf("Enter a climate name:\n>");
+    scanf("%s",&input);
+    printf("%s\n",input);
+
     struct geoObj ret;
-    if(getFromTable("geoObj\0","trial\0",&ret)==0){
+    if(getFromTable("geoObj\0",input,&ret)==0){
         printf("LOG: query succesfull printing results:\n");
         printf(
             "ID: %i\n"
@@ -19,6 +25,10 @@ int main(int argc, char** argv){
         printf("ERR: query failed!\n");
     }
 
+    //free memory
+    //WIP currently has memory leaks
+
+    //terminate
     return 0;
 }
 
