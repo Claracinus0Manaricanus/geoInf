@@ -51,9 +51,6 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         memcpy(ret->flora,sqlite3_column_text(STMT_Select,3),sqlite3_column_bytes(STMT_Select,3));
         //image
         ret->image=NULL;
-        //cleaning
-        sqlite3_finalize(STMT_Select);
-        sqlite3_close(database);
     }else{
         //expressing failure
         ret->ID=-1;
@@ -68,5 +65,8 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         return 1;
     }
 
+    //cleaning
+    sqlite3_finalize(STMT_Select);
+    sqlite3_close(database);
     return 0;
 }
