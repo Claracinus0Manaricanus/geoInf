@@ -10,15 +10,19 @@
 //add different functions for different tables
 //or add a switch statement (using void* for returning data)
 //functions need error checking
-int getFromTable(char* tableName, char* objectName, struct geoObj* ret){
+int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
     //opening database
     sqlite3* database;
     sqlite3_open("src/database/geoInf.db",&database);
 
     //preparing sqlite3 statement and getting column size
-    const char* code="select * from geoObj;\0";
+    char* codeToAdd="select * from \0";
+    char* code=calloc(16+strlen(tableName),sizeof(char));
+    code=memcpy(code,codeToAdd,16);
+    code=strcat(code, tableName);
     sqlite3_stmt* STMT_Select;
     sqlite3_prepare(database,code,-1,&STMT_Select,0);
+    free(code);//we are done with code string
     int cols=sqlite3_column_count(STMT_Select);
 
     unsigned char check=0;
@@ -31,22 +35,33 @@ int getFromTable(char* tableName, char* objectName, struct geoObj* ret){
     }
 
     if(check){
+        //ID
         ret->ID=sqlite3_column_int(STMT_Select,0);
+        //name
         ret->name=calloc(1,sqlite3_column_bytes(STMT_Select,1));
         memcpy(ret->name,sqlite3_column_text(STMT_Select,1),sqlite3_column_bytes(STMT_Select,1));
+        //explanation
+        ret->explanation=NULL;//WIP
+        //soilType
         ret->soilType=calloc(1,sqlite3_column_bytes(STMT_Select,2));
         memcpy(ret->soilType,sqlite3_column_text(STMT_Select,2),sqlite3_column_bytes(STMT_Select,2));
+        //flora
         ret->flora=calloc(1,sqlite3_column_bytes(STMT_Select,3));
         memcpy(ret->flora,sqlite3_column_text(STMT_Select,3),sqlite3_column_bytes(STMT_Select,3));
+        //image
         ret->image=NULL;
+        //cleaning
         sqlite3_finalize(STMT_Select);
         sqlite3_close(database);
     }else{
+        //expressing failure
         ret->ID=-1;
         ret->name=NULL;
+        ret->explanation=NULL;
         ret->soilType=NULL;
         ret->flora=NULL;
         ret->image=NULL;
+        //cleaning
         sqlite3_finalize(STMT_Select);
         sqlite3_close(database);
         return 1;
