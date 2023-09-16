@@ -16,8 +16,9 @@ GLFWwindow* cm_CreateWindow(int width, int height, const char* name){
 }
 
 //memory freeing
-int freeGeoObj(struct geoObj* toFree){
+int freeGeoObj(struct tableElement* toFree){
     free(toFree->name);
+    free(toFree->explanation);
     free(toFree->soilType);
     free(toFree->flora);
     free(toFree->image);

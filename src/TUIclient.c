@@ -5,20 +5,24 @@
 
 int main(int argc, char** argv){
 
-    char input[255]={0};
-    printf("Enter a climate name:\n>");
-    scanf("%s",&input);
+    char objName[255]={0};//object name
+    char tabName[255]={0};//table name
+    printf("Enter the table to search:\n>");
+    scanf("%s",&tabName);
+    printf("Enter object to get:\n>");
+    scanf("%s",&objName);
 
-    struct geoObj ret;
-    if(getFromTable("geoObj\0",input,&ret)==0){
+    struct tableElement ret;
+    if(getFromTable(tabName,objName,&ret)==0){
         printf("LOG: query succesfull printing results:\n");
         printf(
             "ID: %i\n"
             "name: %s\n"
+            "explanation :%s\n"
             "soilType: %s\n"
             "flora: %s\n"
             "TUI doesn't support images.\n",
-            ret.ID,ret.name,ret.soilType,ret.flora
+            ret.ID,ret.name,ret.explanation,ret.soilType,ret.flora
         );
     }else{
         printf("ERR: query failed!\n");

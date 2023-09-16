@@ -12,7 +12,7 @@ GLFWwindow* cm_CreateWindow(int width, int height, const char* name);//creates a
 //needs error message return //char* error
 
 //memory freeing
-int freeGeoObj(struct geoObj* toFree);//frees given geoObj struct
+int freeGeoObj(struct tableElement* toFree);//frees given geoObj struct
 
 #endif
 
