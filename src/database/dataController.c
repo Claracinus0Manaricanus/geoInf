@@ -34,14 +34,15 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         }
     }
 
-    if(check){
+    if(check&&strcmp(tableName,"Climates\0")){
         //ID
         ret->ID=sqlite3_column_int(STMT_Select,0);
         //name
         ret->name=calloc(1,sqlite3_column_bytes(STMT_Select,1));
         memcpy(ret->name,sqlite3_column_text(STMT_Select,1),sqlite3_column_bytes(STMT_Select,1));
-        //explanation
-        ret->explanation=NULL;//WIP
+        //explanation (4 because of reasons)
+        ret->explanation=calloc(1,sqlite3_column_bytes(STMT_Select,4));
+        memcpy(ret->explanation,sqlite3_column_text(STMT_Select,4),sqlite3_column_bytes(STMT_Select,4));
         //soilType
         ret->soilType=calloc(1,sqlite3_column_bytes(STMT_Select,2));
         memcpy(ret->soilType,sqlite3_column_text(STMT_Select,2),sqlite3_column_bytes(STMT_Select,2));
@@ -50,9 +51,6 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         memcpy(ret->flora,sqlite3_column_text(STMT_Select,3),sqlite3_column_bytes(STMT_Select,3));
         //image
         ret->image=NULL;
-        //cleaning
-        sqlite3_finalize(STMT_Select);
-        sqlite3_close(database);
     }else{
         //expressing failure
         ret->ID=-1;
@@ -67,5 +65,8 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         return 1;
     }
 
+    //cleaning
+    sqlite3_finalize(STMT_Select);
+    sqlite3_close(database);
     return 0;
 }

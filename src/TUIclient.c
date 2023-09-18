@@ -18,7 +18,7 @@ int main(int argc, char** argv){
         printf(
             "ID: %i\n"
             "name: %s\n"
-            "explanation :%s\n"
+            "explanation: %s\n"
             "soilType: %s\n"
             "flora: %s\n"
             "TUI doesn't support images.\n",
