@@ -5,7 +5,11 @@
 #include <stdint.h>
 #include "../include/T0.h"
 
+//query get functions
 int getFromTable(char* tableName, char* objectName, struct tableElement* ret);//gets an object from a table using their names
+
+//query input functions
+int addFromTable(char* tableName, char* objectName, struct tableElement* ret);//sets an object to a table using their names
 
 #endif
 

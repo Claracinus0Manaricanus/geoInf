@@ -217,6 +217,33 @@ src/database/dataController.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.s
 .PHONY : src/database/dataController.c.s
 
+src/include/cm_string.o: src/include/cm_string.c.o
+.PHONY : src/include/cm_string.o
+
+# target to build an object file
+src/include/cm_string.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.o
+.PHONY : src/include/cm_string.c.o
+
+src/include/cm_string.i: src/include/cm_string.c.i
+.PHONY : src/include/cm_string.i
+
+# target to preprocess a source file
+src/include/cm_string.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.i
+.PHONY : src/include/cm_string.c.i
+
+src/include/cm_string.s: src/include/cm_string.c.s
+.PHONY : src/include/cm_string.s
+
+# target to generate assembly for a file
+src/include/cm_string.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.s
+.PHONY : src/include/cm_string.c.s
+
 src/include/utility.o: src/include/utility.c.o
 .PHONY : src/include/utility.o
 
@@ -263,6 +290,9 @@ help:
 	@echo "... src/database/dataController.o"
 	@echo "... src/database/dataController.i"
 	@echo "... src/database/dataController.s"
+	@echo "... src/include/cm_string.o"
+	@echo "... src/include/cm_string.i"
+	@echo "... src/include/cm_string.s"
 	@echo "... src/include/utility.o"
 	@echo "... src/include/utility.i"
 	@echo "... src/include/utility.s"

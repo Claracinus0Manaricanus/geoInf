@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TUI.dir/src/TUIclient.c.o.d"
   "CMakeFiles/TUI.dir/src/database/dataController.c.o"
   "CMakeFiles/TUI.dir/src/database/dataController.c.o.d"
+  "CMakeFiles/TUI.dir/src/include/cm_string.c.o"
+  "CMakeFiles/TUI.dir/src/include/cm_string.c.o.d"
   "CMakeFiles/TUI.dir/src/include/utility.c.o"
   "CMakeFiles/TUI.dir/src/include/utility.c.o.d"
   "TUI"

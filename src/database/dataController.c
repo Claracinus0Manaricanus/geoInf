@@ -1,5 +1,5 @@
 #include "dataController.h"
-#include "../cm_string.h"
+#include "../include/cm_string.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -11,26 +11,16 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
     sqlite3* database;
     sqlite3_open("src/database/geoInf.db",&database);
 
-    //preparing sqlite3 statement and getting column size
-    char* codeToAdd="select * from \0";//select * from <tableName> where name='<objecctName>'
-    int index=0;
-    char* code=calloc(29+strlen(tableName)+strlen(objectName),sizeof(char));
     //constructing SQL command
-    code=memcpy(code, codeToAdd,16);
-    code=strcat(code, tableName);
-    code=strcat(code, " where name='");
-    code=strcat(code, objectName);
-    code=strcat(code, "'");
+    char* codeToAdd[5]={"select * from \0",tableName," where name='\0",objectName,"';\0"};
+    char* code=cm_concat(codeToAdd,5);
     //using that command
     sqlite3_stmt* STMT_Select;
     sqlite3_prepare(database,code,-1,&STMT_Select,0);
     free(code);//we are done with code string
-    unsigned char isFound=0;
 
     //checking if element was found
-    if(sqlite3_step(STMT_Select)==SQLITE_ROW){
-        isFound=1;
-    }
+    unsigned char isFound=(sqlite3_step(STMT_Select)==SQLITE_ROW);
 
     //returning data
     if(isFound&&strcmp(tableName,"Climates\0")){
@@ -59,14 +49,10 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         ret->soilType=NULL;
         ret->flora=NULL;
         ret->image=NULL;
-        //cleaning
-        sqlite3_finalize(STMT_Select);
-        sqlite3_close(database);
-        return 1;
     }
 
     //cleaning
     sqlite3_finalize(STMT_Select);
     sqlite3_close(database);
-    return 0;
+    return !isFound;//if isFound is true will return 0
 }
