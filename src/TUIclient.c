@@ -21,8 +21,8 @@ int main(int argc, char** argv){
             "explanation: %s\n"
             "soilType: %s\n"
             "flora: %s\n"
-            "TUI doesn't support images.\n",
-            ret.ID,ret.name,ret.explanation,ret.soilType,ret.flora
+            "image: %s\n",
+            ret.ID,ret.name,ret.explanation,ret.soilType,ret.flora,ret.image
         );
     }else{
         printf("ERR: query failed!\n");

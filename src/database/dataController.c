@@ -4,11 +4,6 @@
 #include <stdlib.h>
 
 
-//change the function to use select more efficiently with:
-//select * from geoObj where name=<objectName>;
-//remove while loop
-//add different functions for different tables
-//or add a switch statement (using void* for returning data)
 //functions need error checking
 int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
     //opening database
@@ -16,25 +11,28 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
     sqlite3_open("src/database/geoInf.db",&database);
 
     //preparing sqlite3 statement and getting column size
-    char* codeToAdd="select * from \0";
-    char* code=calloc(16+strlen(tableName),sizeof(char));
-    code=memcpy(code,codeToAdd,16);
+    char* codeToAdd="select * from \0";//select * from <tableName> where name='<objecctName>'
+    int index=0;
+    char* code=calloc(29+strlen(tableName)+strlen(objectName),sizeof(char));
+    //constructing SQL command
+    code=memcpy(code, codeToAdd,16);
     code=strcat(code, tableName);
+    code=strcat(code, " where name='");
+    code=strcat(code, objectName);
+    code=strcat(code, "'");
+    //using that command
     sqlite3_stmt* STMT_Select;
     sqlite3_prepare(database,code,-1,&STMT_Select,0);
     free(code);//we are done with code string
-    int cols=sqlite3_column_count(STMT_Select);
+    unsigned char isFound=0;
 
-    unsigned char check=0;
-
-    while(sqlite3_step(STMT_Select)==SQLITE_ROW){
-        if(strcmp(objectName,sqlite3_column_text(STMT_Select,1))==0){
-            check=1;
-            break;
-        }
+    //checking if element was found
+    if(sqlite3_step(STMT_Select)==SQLITE_ROW){
+        isFound=1;
     }
 
-    if(check&&strcmp(tableName,"Climates\0")){
+    //returning data
+    if(isFound&&strcmp(tableName,"Climates\0")){
         //ID
         ret->ID=sqlite3_column_int(STMT_Select,0);
         //name
@@ -50,7 +48,8 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         ret->flora=calloc(1,sqlite3_column_bytes(STMT_Select,3));
         memcpy(ret->flora,sqlite3_column_text(STMT_Select,3),sqlite3_column_bytes(STMT_Select,3));
         //image
-        ret->image=NULL;
+        ret->image=calloc(1,sqlite3_column_bytes(STMT_Select,5));
+        memcpy(ret->image,sqlite3_column_text(STMT_Select,5),sqlite3_column_bytes(STMT_Select,5));
     }else{
         //expressing failure
         ret->ID=-1;
