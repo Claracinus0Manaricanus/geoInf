@@ -19,6 +19,8 @@ int main(int argc, char** argv){
     char tabName[255]={0};//tableName
     char input[255]={0};
     struct tableElement element;
+    char** elementNames=NULL;
+    int namesLength=0;
 
     switch(parseArguments(argc,argv)){
         case COMMAND_GET:
@@ -88,6 +90,12 @@ int main(int argc, char** argv){
             scanf("%s",&input);
             //deleting
             deleteFromTable(tabName,input);
+        break;
+
+        case COMMAND_LIST:
+            //input
+            printf("table to list > ");
+            scanf("%s",&tabName);
         break;
         
         default:

@@ -7,6 +7,7 @@
 
 //database get functions
 int getFromTable(char* tableName, char* objectName, struct tableElement* ret);//gets an object from a table using their names
+int getTableElementNames(char* tableName, char*** elementNames, int &size);//fills elementNames with tables name column values
 
 //database input functions
 int addToTable(char* tableName, struct tableElement* vals);//sets an object to a table using their names
