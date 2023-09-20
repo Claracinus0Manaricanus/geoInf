@@ -19,8 +19,8 @@ struct Vec3{
 struct tableElement{//can be used for multiple tables
     int ID;
     char* name;
-    char* explanation;
-    char* soilType;
+    char* climate;
+    char* soil;
     char* flora;
     unsigned char* image;
 };//every table fills their corresponding values

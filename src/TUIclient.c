@@ -18,15 +18,16 @@ int main(int argc, char** argv){
         printf(
             "ID: %i\n"
             "name: %s\n"
-            "explanation: %s\n"
-            "soilType: %s\n"
+            "climate: %s\n"
+            "soil: %s\n"
             "flora: %s\n"
             "image: %s\n",
-            ret.ID,ret.name,ret.explanation,ret.soilType,ret.flora,ret.image
+            ret.ID,ret.name,ret.climate,ret.soil,ret.flora,ret.image
         );
     }else{
         printf("ERR: query failed!\n");
     }
+    addToTable("soils\0",&ret);
 
     //free memory
     freeGeoObj(&ret);
