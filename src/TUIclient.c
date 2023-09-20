@@ -5,8 +5,13 @@
 
 //constants
 const char* MESSAGE_HELP=
-"-a <action> : selects an action such as get or set. see actions(WIP).\n"
+"-a <action> : selects an action such as get or set. see actions.\n"
 "-help       : displays help message.\n"
+"actions list:\n"
+"get = gets an element from a table\n"
+"set = inserts an element to a table\n"
+"del = deletes an element from a table\n"
+"list = list name column values of a table\n"
 "\0";
 
 int main(int argc, char** argv){
@@ -98,6 +103,10 @@ int main(int argc, char** argv){
             scanf("%s",&tabName);
         break;
         
+        case COMMAND_HELP:
+            printf("%s",MESSAGE_HELP);
+        break;
+
         default:
             printf("wrong arguments for -a.\ntry to use:\n%s",MESSAGE_HELP);
         break;
