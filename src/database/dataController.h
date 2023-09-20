@@ -5,11 +5,12 @@
 #include <stdint.h>
 #include "../include/T0.h"
 
-//query get functions
+//database get functions
 int getFromTable(char* tableName, char* objectName, struct tableElement* ret);//gets an object from a table using their names
 
-//query input functions
+//database input functions
 int addToTable(char* tableName, struct tableElement* vals);//sets an object to a table using their names
+int deleteFromTable(char* tableName, char* elementName);//deletes the element with the given name from <tableName>
 
 #endif
 

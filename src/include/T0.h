@@ -24,18 +24,9 @@ struct tableElement{//can be used for multiple tables
     char* flora;
     unsigned char* image;
 };//every table fills their corresponding values
-//for example while climates might fill all variables
-//plant types will fill ID, name, explanation and image
-//the unneeded variables must be either null or 0
 
 #endif
 
 /*
 T0.h defines structs, constants and the like for other programs to use.
-*/
-
-/*
-iklim
-toprak türü
-bitki örtüsü
 */

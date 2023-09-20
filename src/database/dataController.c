@@ -95,3 +95,29 @@ int addToTable(char* tableName, struct tableElement* vals){
     sqlite3_close(database);
     return 0;
 }
+
+int deleteFromTable(char* tableName, char* elementName){
+    //opening database
+    sqlite3* database;
+    if(sqlite3_open("src/database/geoInf.db",&database)!=SQLITE_OK)
+        return 1;
+
+    //constructing SQL command
+    char* commands[5]={
+        "delete from \0",
+        tableName,
+        " where name='\0",
+        elementName,"';\0"
+    };
+    char* code=cm_concat(commands,5);
+
+    //preparing command
+    sqlite3_stmt* STMT_Delete;
+    sqlite3_prepare(database,code,-1,&STMT_Delete,0);
+    sqlite3_step(STMT_Delete);
+
+    //cleaning
+    sqlite3_finalize(STMT_Delete);
+    sqlite3_close(database);
+    return 0;
+}
