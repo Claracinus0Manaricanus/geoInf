@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/cm/codes/c++/geoInf
 # The main recursive "all" target.
 all: CMakeFiles/GUI.dir/all
 all: CMakeFiles/TUI.dir/all
+all: CMakeFiles/netController.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,6 +75,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/GUI.dir/clean
 clean: CMakeFiles/TUI.dir/clean
+clean: CMakeFiles/netController.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -127,6 +129,32 @@ TUI: CMakeFiles/TUI.dir/rule
 CMakeFiles/TUI.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/clean
 .PHONY : CMakeFiles/TUI.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/netController.dir
+
+# All Build rule for target.
+CMakeFiles/netController.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=11,12,13,14 "Built target netController"
+.PHONY : CMakeFiles/netController.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/netController.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/netController.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 0
+.PHONY : CMakeFiles/netController.dir/rule
+
+# Convenience name for target.
+netController: CMakeFiles/netController.dir/rule
+.PHONY : netController
+
+# clean rule for target.
+CMakeFiles/netController.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/clean
+.PHONY : CMakeFiles/netController.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

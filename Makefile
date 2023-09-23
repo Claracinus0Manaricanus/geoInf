@@ -142,6 +142,19 @@ TUI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/build
 .PHONY : TUI/fast
 
+#=============================================================================
+# Target rules for targets named netController
+
+# Build rule for target.
+netController: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 netController
+.PHONY : netController
+
+# fast build rule for target.
+netController/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/build
+.PHONY : netController/fast
+
 src/GUIclient.o: src/GUIclient.c.o
 .PHONY : src/GUIclient.o
 
@@ -197,6 +210,7 @@ src/database/dataController.o: src/database/dataController.c.o
 src/database/dataController.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.o
 .PHONY : src/database/dataController.c.o
 
 src/database/dataController.i: src/database/dataController.c.i
@@ -206,6 +220,7 @@ src/database/dataController.i: src/database/dataController.c.i
 src/database/dataController.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.i
 .PHONY : src/database/dataController.c.i
 
 src/database/dataController.s: src/database/dataController.c.s
@@ -215,7 +230,32 @@ src/database/dataController.s: src/database/dataController.c.s
 src/database/dataController.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.s
 .PHONY : src/database/dataController.c.s
+
+src/database/netController.o: src/database/netController.c.o
+.PHONY : src/database/netController.o
+
+# target to build an object file
+src/database/netController.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/netController.c.o
+.PHONY : src/database/netController.c.o
+
+src/database/netController.i: src/database/netController.c.i
+.PHONY : src/database/netController.i
+
+# target to preprocess a source file
+src/database/netController.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/netController.c.i
+.PHONY : src/database/netController.c.i
+
+src/database/netController.s: src/database/netController.c.s
+.PHONY : src/database/netController.s
+
+# target to generate assembly for a file
+src/database/netController.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/netController.c.s
+.PHONY : src/database/netController.c.s
 
 src/include/cm_string.o: src/include/cm_string.c.o
 .PHONY : src/include/cm_string.o
@@ -224,6 +264,7 @@ src/include/cm_string.o: src/include/cm_string.c.o
 src/include/cm_string.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.o
 .PHONY : src/include/cm_string.c.o
 
 src/include/cm_string.i: src/include/cm_string.c.i
@@ -233,6 +274,7 @@ src/include/cm_string.i: src/include/cm_string.c.i
 src/include/cm_string.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.i
 .PHONY : src/include/cm_string.c.i
 
 src/include/cm_string.s: src/include/cm_string.c.s
@@ -242,6 +284,7 @@ src/include/cm_string.s: src/include/cm_string.c.s
 src/include/cm_string.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.s
 .PHONY : src/include/cm_string.c.s
 
 src/include/utility.o: src/include/utility.c.o
@@ -281,6 +324,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... GUI"
 	@echo "... TUI"
+	@echo "... netController"
 	@echo "... src/GUIclient.o"
 	@echo "... src/GUIclient.i"
 	@echo "... src/GUIclient.s"
@@ -290,6 +334,9 @@ help:
 	@echo "... src/database/dataController.o"
 	@echo "... src/database/dataController.i"
 	@echo "... src/database/dataController.s"
+	@echo "... src/database/netController.o"
+	@echo "... src/database/netController.i"
+	@echo "... src/database/netController.s"
 	@echo "... src/include/cm_string.o"
 	@echo "... src/include/cm_string.i"
 	@echo "... src/include/cm_string.s"
