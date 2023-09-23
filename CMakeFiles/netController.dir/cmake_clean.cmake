@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/netController.dir/src/database/netController.c.o.d"
   "CMakeFiles/netController.dir/src/include/cm_string.c.o"
   "CMakeFiles/netController.dir/src/include/cm_string.c.o.d"
+  "CMakeFiles/netController.dir/src/include/utility.c.o"
+  "CMakeFiles/netController.dir/src/include/utility.c.o.d"
   "netController"
   "netController.pdb"
 )

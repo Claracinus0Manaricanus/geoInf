@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/TUI.dir/src/TUIclient.c.o CMakeFiles/TUI.dir/src/include/utility.c.o CMakeFiles/TUI.dir/src/include/cm_string.c.o CMakeFiles/TUI.dir/src/database/dataController.c.o -o TUI  -lGL -lGLEW -lglfw -lsqlite3 
+/usr/bin/cc CMakeFiles/TUI.dir/src/TUIclient.c.o CMakeFiles/TUI.dir/src/include/utility.c.o CMakeFiles/TUI.dir/src/include/cm_string.c.o CMakeFiles/TUI.dir/src/database/dataController.c.o -o TUI  -lsqlite3 

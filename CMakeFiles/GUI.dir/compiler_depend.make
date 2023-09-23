@@ -161,10 +161,6 @@ CMakeFiles/GUI.dir/src/include/cm_string.c.o: src/include/cm_string.c \
 CMakeFiles/GUI.dir/src/include/utility.c.o: src/include/utility.c \
   src/include/T0.h \
   src/include/utility.h \
-  /usr/include/GL/gl.h \
-  /usr/include/GL/glew.h \
-  /usr/include/GL/glu.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \

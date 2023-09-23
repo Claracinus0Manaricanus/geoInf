@@ -69,10 +69,24 @@ include CMakeFiles/netController.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/netController.dir/flags.make
 
+CMakeFiles/netController.dir/src/include/utility.c.o: CMakeFiles/netController.dir/flags.make
+CMakeFiles/netController.dir/src/include/utility.c.o: src/include/utility.c
+CMakeFiles/netController.dir/src/include/utility.c.o: CMakeFiles/netController.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/netController.dir/src/include/utility.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/netController.dir/src/include/utility.c.o -MF CMakeFiles/netController.dir/src/include/utility.c.o.d -o CMakeFiles/netController.dir/src/include/utility.c.o -c /home/cm/codes/c++/geoInf/src/include/utility.c
+
+CMakeFiles/netController.dir/src/include/utility.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/netController.dir/src/include/utility.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cm/codes/c++/geoInf/src/include/utility.c > CMakeFiles/netController.dir/src/include/utility.c.i
+
+CMakeFiles/netController.dir/src/include/utility.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/netController.dir/src/include/utility.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cm/codes/c++/geoInf/src/include/utility.c -o CMakeFiles/netController.dir/src/include/utility.c.s
+
 CMakeFiles/netController.dir/src/database/netController.c.o: CMakeFiles/netController.dir/flags.make
 CMakeFiles/netController.dir/src/database/netController.c.o: src/database/netController.c
 CMakeFiles/netController.dir/src/database/netController.c.o: CMakeFiles/netController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/netController.dir/src/database/netController.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/netController.dir/src/database/netController.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/netController.dir/src/database/netController.c.o -MF CMakeFiles/netController.dir/src/database/netController.c.o.d -o CMakeFiles/netController.dir/src/database/netController.c.o -c /home/cm/codes/c++/geoInf/src/database/netController.c
 
 CMakeFiles/netController.dir/src/database/netController.c.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/netController.dir/src/database/netController.c.s: cmake_force
 CMakeFiles/netController.dir/src/database/dataController.c.o: CMakeFiles/netController.dir/flags.make
 CMakeFiles/netController.dir/src/database/dataController.c.o: src/database/dataController.c
 CMakeFiles/netController.dir/src/database/dataController.c.o: CMakeFiles/netController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/netController.dir/src/database/dataController.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/netController.dir/src/database/dataController.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/netController.dir/src/database/dataController.c.o -MF CMakeFiles/netController.dir/src/database/dataController.c.o.d -o CMakeFiles/netController.dir/src/database/dataController.c.o -c /home/cm/codes/c++/geoInf/src/database/dataController.c
 
 CMakeFiles/netController.dir/src/database/dataController.c.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/netController.dir/src/database/dataController.c.s: cmake_force
 CMakeFiles/netController.dir/src/include/cm_string.c.o: CMakeFiles/netController.dir/flags.make
 CMakeFiles/netController.dir/src/include/cm_string.c.o: src/include/cm_string.c
 CMakeFiles/netController.dir/src/include/cm_string.c.o: CMakeFiles/netController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/netController.dir/src/include/cm_string.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/netController.dir/src/include/cm_string.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/netController.dir/src/include/cm_string.c.o -MF CMakeFiles/netController.dir/src/include/cm_string.c.o.d -o CMakeFiles/netController.dir/src/include/cm_string.c.o -c /home/cm/codes/c++/geoInf/src/include/cm_string.c
 
 CMakeFiles/netController.dir/src/include/cm_string.c.i: cmake_force
@@ -113,6 +127,7 @@ CMakeFiles/netController.dir/src/include/cm_string.c.s: cmake_force
 
 # Object files for target netController
 netController_OBJECTS = \
+"CMakeFiles/netController.dir/src/include/utility.c.o" \
 "CMakeFiles/netController.dir/src/database/netController.c.o" \
 "CMakeFiles/netController.dir/src/database/dataController.c.o" \
 "CMakeFiles/netController.dir/src/include/cm_string.c.o"
@@ -120,12 +135,13 @@ netController_OBJECTS = \
 # External object files for target netController
 netController_EXTERNAL_OBJECTS =
 
+netController: CMakeFiles/netController.dir/src/include/utility.c.o
 netController: CMakeFiles/netController.dir/src/database/netController.c.o
 netController: CMakeFiles/netController.dir/src/database/dataController.c.o
 netController: CMakeFiles/netController.dir/src/include/cm_string.c.o
 netController: CMakeFiles/netController.dir/build.make
 netController: CMakeFiles/netController.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable netController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable netController"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/netController.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

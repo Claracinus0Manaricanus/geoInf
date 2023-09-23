@@ -294,6 +294,7 @@ src/include/utility.o: src/include/utility.c.o
 src/include/utility.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.o
 .PHONY : src/include/utility.c.o
 
 src/include/utility.i: src/include/utility.c.i
@@ -303,6 +304,7 @@ src/include/utility.i: src/include/utility.c.i
 src/include/utility.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.i
 .PHONY : src/include/utility.c.i
 
 src/include/utility.s: src/include/utility.c.s
@@ -312,6 +314,7 @@ src/include/utility.s: src/include/utility.c.s
 src/include/utility.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.s
 .PHONY : src/include/utility.c.s
 
 # Help Target

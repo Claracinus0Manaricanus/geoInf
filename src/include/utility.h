@@ -9,15 +9,9 @@
 #define COMMAND_LIST 4
 
 #include "T0.h"
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
-//constructors
-GLFWwindow* cm_CreateWindow(int width, int height, const char* name);//creates a window and makes it current opengl context
-//needs error message return //char* error
 
 //memory freeing
 int freeGeoObj(struct tableElement* toFree);//frees given geoObj struct
