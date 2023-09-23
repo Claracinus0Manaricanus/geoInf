@@ -40,11 +40,22 @@ int main(int argc, char** argv){
 
     //answering requests
     while(run){
+        //client connection
         clsfd=accept(TCP_Server,NULL,NULL);
         run=2;
+        
+        //client communication
         while(run>1){
+            //send ready to client
+            //read client request
+            //search database
+            //send client if data is found or not
+            //functions according to clients requested data parts
+            //ending (when client sends DONE)
             run=1;
         }
+
+        //client disconnection
         close(clsfd);
     }
     
