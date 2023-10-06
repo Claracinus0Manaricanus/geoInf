@@ -9,14 +9,14 @@ and reading from the database. It also has functions for scanning names and tabl
 netController is used for opening a server to access the database.
 Protocol:
 It has a request based protocol. The client sends a 256 byte string holding a command
-and the server responds with the corresponding data.
+and the server responds with the corresponding data. For using commands put ':' between parameters.
 
-- scan < table >: this command is for getting the names of the elements from a table.
+- scan:< table >; : this command is for getting the names of the elements from a table.
 It first sends a uint32_t holding the number of elements then sends the names of the elements.
 Each elements name length in bytes get sent first. Then the name itself as a string.
 
-- get < table > < element name > : requests an element belonging to < table > name < element name >.
+- get:< table >:< element name >; : requests an element belonging to < table > name < element name >.
 The server sends id, name, climate, soil, flora, image data in order.
 For sending strings their length in bytes get sent first.
 
-- set < table > < element data > : WIP
+- set:< table >:< element data >; : WIP
