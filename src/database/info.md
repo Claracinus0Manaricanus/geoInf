@@ -6,5 +6,5 @@ This is the header for functions to access the database. It keeps operations for
 and reading from the database.
 
 Functions:
-- int getFromTable(char* tableName, char* objectName, struct tableElement* ret)
+- int getFromTable(char* tableName, char* objectName, struct tableElement* ret):
 this functions gets the element named <objectName> from table <tableName> and put its data into ret.
