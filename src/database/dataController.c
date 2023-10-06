@@ -62,7 +62,6 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
 
 //database input functions
 
-
 //needs error checking
 int addToTable(char* tableName, struct tableElement* vals){
     //opening database
