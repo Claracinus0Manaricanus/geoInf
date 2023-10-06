@@ -10,6 +10,10 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+//constants
+#define VAL_READY 1
+#define VAL_DONE 2
+
 //network
 int TCPListener(uint32_t ip, uint16_t port);
 //signal utility
@@ -36,17 +40,23 @@ int main(int argc, char** argv){
     //vars
     char i=0;
     int clsfd;
+    const int READY=VAL_READY;
+    const int DONE=VAL_DONE;
     struct tableElement dataHolder;
+    char clientMessage[256]={0};//from client
+    char serverMessage[1024]={0};//to client
 
     //answering requests
     while(run){
         //client connection
         clsfd=accept(TCP_Server,NULL,NULL);
         run=2;
-        
+
+        //send ready to client
+        write(clsfd,&READY,sizeof(int));
+
         //client communication
         while(run>1){
-            //send ready to client
             //read client request
             //search database
             //send client if data is found or not
@@ -56,10 +66,12 @@ int main(int argc, char** argv){
         }
 
         //client disconnection
+        write(clsfd,&DONE,sizeof(int));
         close(clsfd);
     }
     
     //termination
+    close(clsfd);
     close(TCP_Server);
     freeGeoObj(&dataHolder);
     return 0;
