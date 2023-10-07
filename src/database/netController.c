@@ -31,7 +31,7 @@ int main(int argc, char** argv){
 
     //TCP setup
     uint32_t ipAddr=0;
-    inet_pton(AF_INET,"127.0.0.1",&ipAddr);
+    inet_pton(AF_INET,"0.0.0.0",&ipAddr);
     int TCP_Server=TCPListener(ipAddr,(port<<8)+(port>>8));
 
     //signal handler
@@ -50,22 +50,14 @@ int main(int argc, char** argv){
     while(run){
         //client connection
         clsfd=accept(TCP_Server,NULL,NULL);
-        run=2;
 
         //send ready to client
         write(clsfd,&READY,sizeof(int));
 
-        //client communication
-        while(run>1){
-            //read client request
-            //search database
-            //send client if data is found or not
-            //functions according to clients requested data parts
-            //ending (when client sends DONE)
-            run=1;
-        }
+        //parse client request
+        read(clsfd,clientMessage,256);//getting request
 
-        //client disconnection
+        //disconnect client
         write(clsfd,&DONE,sizeof(int));
         close(clsfd);
     }
