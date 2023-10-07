@@ -155,53 +155,53 @@ netController/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/build
 .PHONY : netController/fast
 
-src/GUIclient.o: src/GUIclient.c.o
-.PHONY : src/GUIclient.o
+src/clients/GUI/GUIclient.o: src/clients/GUI/GUIclient.c.o
+.PHONY : src/clients/GUI/GUIclient.o
 
 # target to build an object file
-src/GUIclient.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.o
-.PHONY : src/GUIclient.c.o
+src/clients/GUI/GUIclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o
+.PHONY : src/clients/GUI/GUIclient.c.o
 
-src/GUIclient.i: src/GUIclient.c.i
-.PHONY : src/GUIclient.i
+src/clients/GUI/GUIclient.i: src/clients/GUI/GUIclient.c.i
+.PHONY : src/clients/GUI/GUIclient.i
 
 # target to preprocess a source file
-src/GUIclient.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.i
-.PHONY : src/GUIclient.c.i
+src/clients/GUI/GUIclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.i
+.PHONY : src/clients/GUI/GUIclient.c.i
 
-src/GUIclient.s: src/GUIclient.c.s
-.PHONY : src/GUIclient.s
+src/clients/GUI/GUIclient.s: src/clients/GUI/GUIclient.c.s
+.PHONY : src/clients/GUI/GUIclient.s
 
 # target to generate assembly for a file
-src/GUIclient.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/GUIclient.c.s
-.PHONY : src/GUIclient.c.s
+src/clients/GUI/GUIclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.s
+.PHONY : src/clients/GUI/GUIclient.c.s
 
-src/TUIclient.o: src/TUIclient.c.o
-.PHONY : src/TUIclient.o
+src/clients/TUI/TUIclient.o: src/clients/TUI/TUIclient.c.o
+.PHONY : src/clients/TUI/TUIclient.o
 
 # target to build an object file
-src/TUIclient.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.o
-.PHONY : src/TUIclient.c.o
+src/clients/TUI/TUIclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o
+.PHONY : src/clients/TUI/TUIclient.c.o
 
-src/TUIclient.i: src/TUIclient.c.i
-.PHONY : src/TUIclient.i
+src/clients/TUI/TUIclient.i: src/clients/TUI/TUIclient.c.i
+.PHONY : src/clients/TUI/TUIclient.i
 
 # target to preprocess a source file
-src/TUIclient.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.i
-.PHONY : src/TUIclient.c.i
+src/clients/TUI/TUIclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.i
+.PHONY : src/clients/TUI/TUIclient.c.i
 
-src/TUIclient.s: src/TUIclient.c.s
-.PHONY : src/TUIclient.s
+src/clients/TUI/TUIclient.s: src/clients/TUI/TUIclient.c.s
+.PHONY : src/clients/TUI/TUIclient.s
 
 # target to generate assembly for a file
-src/TUIclient.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/TUIclient.c.s
-.PHONY : src/TUIclient.c.s
+src/clients/TUI/TUIclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.s
+.PHONY : src/clients/TUI/TUIclient.c.s
 
 src/database/dataController.o: src/database/dataController.c.o
 .PHONY : src/database/dataController.o
@@ -328,12 +328,12 @@ help:
 	@echo "... GUI"
 	@echo "... TUI"
 	@echo "... netController"
-	@echo "... src/GUIclient.o"
-	@echo "... src/GUIclient.i"
-	@echo "... src/GUIclient.s"
-	@echo "... src/TUIclient.o"
-	@echo "... src/TUIclient.i"
-	@echo "... src/TUIclient.s"
+	@echo "... src/clients/GUI/GUIclient.o"
+	@echo "... src/clients/GUI/GUIclient.i"
+	@echo "... src/clients/GUI/GUIclient.s"
+	@echo "... src/clients/TUI/TUIclient.o"
+	@echo "... src/clients/TUI/TUIclient.i"
+	@echo "... src/clients/TUI/TUIclient.s"
 	@echo "... src/database/dataController.o"
 	@echo "... src/database/dataController.i"
 	@echo "... src/database/dataController.s"

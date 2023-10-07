@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/cm/codes/c++/geoInf/src/GUIclient.c" "CMakeFiles/GUI.dir/src/GUIclient.c.o" "gcc" "CMakeFiles/GUI.dir/src/GUIclient.c.o.d"
+  "/home/cm/codes/c++/geoInf/src/clients/GUI/GUIclient.c" "CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o" "gcc" "CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o.d"
   "/home/cm/codes/c++/geoInf/src/database/dataController.c" "CMakeFiles/GUI.dir/src/database/dataController.c.o" "gcc" "CMakeFiles/GUI.dir/src/database/dataController.c.o.d"
   "/home/cm/codes/c++/geoInf/src/include/cm_string.c" "CMakeFiles/GUI.dir/src/include/cm_string.c.o" "gcc" "CMakeFiles/GUI.dir/src/include/cm_string.c.o.d"
   "/home/cm/codes/c++/geoInf/src/include/utility.c" "CMakeFiles/GUI.dir/src/include/utility.c.o" "gcc" "CMakeFiles/GUI.dir/src/include/utility.c.o.d"

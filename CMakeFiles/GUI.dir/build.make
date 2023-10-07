@@ -69,19 +69,19 @@ include CMakeFiles/GUI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GUI.dir/flags.make
 
-CMakeFiles/GUI.dir/src/GUIclient.c.o: CMakeFiles/GUI.dir/flags.make
-CMakeFiles/GUI.dir/src/GUIclient.c.o: src/GUIclient.c
-CMakeFiles/GUI.dir/src/GUIclient.c.o: CMakeFiles/GUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/GUI.dir/src/GUIclient.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/GUI.dir/src/GUIclient.c.o -MF CMakeFiles/GUI.dir/src/GUIclient.c.o.d -o CMakeFiles/GUI.dir/src/GUIclient.c.o -c /home/cm/codes/c++/geoInf/src/GUIclient.c
+CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o: CMakeFiles/GUI.dir/flags.make
+CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o: src/clients/GUI/GUIclient.c
+CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o: CMakeFiles/GUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o -MF CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o.d -o CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o -c /home/cm/codes/c++/geoInf/src/clients/GUI/GUIclient.c
 
-CMakeFiles/GUI.dir/src/GUIclient.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/GUI.dir/src/GUIclient.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cm/codes/c++/geoInf/src/GUIclient.c > CMakeFiles/GUI.dir/src/GUIclient.c.i
+CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cm/codes/c++/geoInf/src/clients/GUI/GUIclient.c > CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.i
 
-CMakeFiles/GUI.dir/src/GUIclient.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/GUI.dir/src/GUIclient.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cm/codes/c++/geoInf/src/GUIclient.c -o CMakeFiles/GUI.dir/src/GUIclient.c.s
+CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cm/codes/c++/geoInf/src/clients/GUI/GUIclient.c -o CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.s
 
 CMakeFiles/GUI.dir/src/include/utility.c.o: CMakeFiles/GUI.dir/flags.make
 CMakeFiles/GUI.dir/src/include/utility.c.o: src/include/utility.c
@@ -127,7 +127,7 @@ CMakeFiles/GUI.dir/src/database/dataController.c.s: cmake_force
 
 # Object files for target GUI
 GUI_OBJECTS = \
-"CMakeFiles/GUI.dir/src/GUIclient.c.o" \
+"CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o" \
 "CMakeFiles/GUI.dir/src/include/utility.c.o" \
 "CMakeFiles/GUI.dir/src/include/cm_string.c.o" \
 "CMakeFiles/GUI.dir/src/database/dataController.c.o"
@@ -135,7 +135,7 @@ GUI_OBJECTS = \
 # External object files for target GUI
 GUI_EXTERNAL_OBJECTS =
 
-GUI: CMakeFiles/GUI.dir/src/GUIclient.c.o
+GUI: CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o
 GUI: CMakeFiles/GUI.dir/src/include/utility.c.o
 GUI: CMakeFiles/GUI.dir/src/include/cm_string.c.o
 GUI: CMakeFiles/GUI.dir/src/database/dataController.c.o

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/GUI.dir/src/GUIclient.c.o"
-  "CMakeFiles/GUI.dir/src/GUIclient.c.o.d"
+  "CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o"
+  "CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o.d"
   "CMakeFiles/GUI.dir/src/database/dataController.c.o"
   "CMakeFiles/GUI.dir/src/database/dataController.c.o.d"
   "CMakeFiles/GUI.dir/src/include/cm_string.c.o"

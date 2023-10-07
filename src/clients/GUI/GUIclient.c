@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "include/T0.h"//custom types
+#include "../../include/T0.h"//custom types
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 

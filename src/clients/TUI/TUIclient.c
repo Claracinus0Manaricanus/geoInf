@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/utility.h"
-#include "database/dataController.h"
+#include "../../include/utility.h"
+#include "../../database/dataController.h"
 
 //constants
 const char* MESSAGE_HELP=
@@ -62,7 +62,7 @@ int main(int argc, char** argv){
             memcpy(element.name,input,strlen(input));
             //climate
             printf("element climate > ");
-            fgets((char*)&input,255,stdin);//wokaround to unknown bug
+            fgets((char*)&input,255,stdin);//workaround to unknown bug
             fgets((char*)&input,255,stdin);
             element.climate=calloc(sizeof(char),strlen(input)-1);
             memcpy(element.climate,input,strlen(input)-1);
@@ -97,9 +97,9 @@ int main(int argc, char** argv){
             deleteFromTable(tabName,input);
         break;
 
-        case COMMAND_LIST:
+        case COMMAND_SCAN:
             //input
-            printf("table to list > ");
+            printf("table to scan > ");
             scanf("%s",&tabName);
         break;
         

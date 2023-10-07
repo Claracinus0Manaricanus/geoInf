@@ -25,7 +25,7 @@ int parseArguments(int argc, char** argv){
                 }else if(strcmp(argv[i],"del")==0){
                     return COMMAND_DEL;
                 }else if(strcmp(argv[i],"list")==0){
-                    return COMMAND_LIST;
+                    return COMMAND_SCAN;
                 }else{
                     return 0;
                 }

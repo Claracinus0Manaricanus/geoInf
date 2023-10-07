@@ -6,7 +6,7 @@
 #define COMMAND_GET  1
 #define COMMAND_SET  2
 #define COMMAND_DEL  3
-#define COMMAND_LIST 4
+#define COMMAND_SCAN 4
 
 #include "T0.h"
 #include <stdint.h>

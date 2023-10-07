@@ -69,19 +69,19 @@ include CMakeFiles/TUI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TUI.dir/flags.make
 
-CMakeFiles/TUI.dir/src/TUIclient.c.o: CMakeFiles/TUI.dir/flags.make
-CMakeFiles/TUI.dir/src/TUIclient.c.o: src/TUIclient.c
-CMakeFiles/TUI.dir/src/TUIclient.c.o: CMakeFiles/TUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TUI.dir/src/TUIclient.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TUI.dir/src/TUIclient.c.o -MF CMakeFiles/TUI.dir/src/TUIclient.c.o.d -o CMakeFiles/TUI.dir/src/TUIclient.c.o -c /home/cm/codes/c++/geoInf/src/TUIclient.c
+CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o: CMakeFiles/TUI.dir/flags.make
+CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o: src/clients/TUI/TUIclient.c
+CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o: CMakeFiles/TUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o -MF CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o.d -o CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o -c /home/cm/codes/c++/geoInf/src/clients/TUI/TUIclient.c
 
-CMakeFiles/TUI.dir/src/TUIclient.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/TUI.dir/src/TUIclient.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cm/codes/c++/geoInf/src/TUIclient.c > CMakeFiles/TUI.dir/src/TUIclient.c.i
+CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cm/codes/c++/geoInf/src/clients/TUI/TUIclient.c > CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.i
 
-CMakeFiles/TUI.dir/src/TUIclient.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/TUI.dir/src/TUIclient.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cm/codes/c++/geoInf/src/TUIclient.c -o CMakeFiles/TUI.dir/src/TUIclient.c.s
+CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cm/codes/c++/geoInf/src/clients/TUI/TUIclient.c -o CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.s
 
 CMakeFiles/TUI.dir/src/include/utility.c.o: CMakeFiles/TUI.dir/flags.make
 CMakeFiles/TUI.dir/src/include/utility.c.o: src/include/utility.c
@@ -127,7 +127,7 @@ CMakeFiles/TUI.dir/src/database/dataController.c.s: cmake_force
 
 # Object files for target TUI
 TUI_OBJECTS = \
-"CMakeFiles/TUI.dir/src/TUIclient.c.o" \
+"CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o" \
 "CMakeFiles/TUI.dir/src/include/utility.c.o" \
 "CMakeFiles/TUI.dir/src/include/cm_string.c.o" \
 "CMakeFiles/TUI.dir/src/database/dataController.c.o"
@@ -135,7 +135,7 @@ TUI_OBJECTS = \
 # External object files for target TUI
 TUI_EXTERNAL_OBJECTS =
 
-TUI: CMakeFiles/TUI.dir/src/TUIclient.c.o
+TUI: CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o
 TUI: CMakeFiles/TUI.dir/src/include/utility.c.o
 TUI: CMakeFiles/TUI.dir/src/include/cm_string.c.o
 TUI: CMakeFiles/TUI.dir/src/database/dataController.c.o
