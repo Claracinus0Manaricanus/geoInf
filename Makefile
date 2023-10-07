@@ -155,6 +155,19 @@ netController/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/build
 .PHONY : netController/fast
 
+#=============================================================================
+# Target rules for targets named tuiNet
+
+# Build rule for target.
+tuiNet: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tuiNet
+.PHONY : tuiNet
+
+# fast build rule for target.
+tuiNet/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/build
+.PHONY : tuiNet/fast
+
 src/clients/GUI/GUIclient.o: src/clients/GUI/GUIclient.c.o
 .PHONY : src/clients/GUI/GUIclient.o
 
@@ -203,6 +216,30 @@ src/clients/TUI/TUIclient.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.s
 .PHONY : src/clients/TUI/TUIclient.c.s
 
+src/clients/tuiNet/tuiNet.o: src/clients/tuiNet/tuiNet.c.o
+.PHONY : src/clients/tuiNet/tuiNet.o
+
+# target to build an object file
+src/clients/tuiNet/tuiNet.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.o
+.PHONY : src/clients/tuiNet/tuiNet.c.o
+
+src/clients/tuiNet/tuiNet.i: src/clients/tuiNet/tuiNet.c.i
+.PHONY : src/clients/tuiNet/tuiNet.i
+
+# target to preprocess a source file
+src/clients/tuiNet/tuiNet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.i
+.PHONY : src/clients/tuiNet/tuiNet.c.i
+
+src/clients/tuiNet/tuiNet.s: src/clients/tuiNet/tuiNet.c.s
+.PHONY : src/clients/tuiNet/tuiNet.s
+
+# target to generate assembly for a file
+src/clients/tuiNet/tuiNet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.s
+.PHONY : src/clients/tuiNet/tuiNet.c.s
+
 src/database/dataController.o: src/database/dataController.c.o
 .PHONY : src/database/dataController.o
 
@@ -211,6 +248,7 @@ src/database/dataController.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/database/dataController.c.o
 .PHONY : src/database/dataController.c.o
 
 src/database/dataController.i: src/database/dataController.c.i
@@ -221,6 +259,7 @@ src/database/dataController.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/database/dataController.c.i
 .PHONY : src/database/dataController.c.i
 
 src/database/dataController.s: src/database/dataController.c.s
@@ -231,6 +270,7 @@ src/database/dataController.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/database/dataController.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/database/dataController.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/database/dataController.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/database/dataController.c.s
 .PHONY : src/database/dataController.c.s
 
 src/database/netController.o: src/database/netController.c.o
@@ -265,6 +305,7 @@ src/include/cm_string.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/cm_string.c.o
 .PHONY : src/include/cm_string.c.o
 
 src/include/cm_string.i: src/include/cm_string.c.i
@@ -275,6 +316,7 @@ src/include/cm_string.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/cm_string.c.i
 .PHONY : src/include/cm_string.c.i
 
 src/include/cm_string.s: src/include/cm_string.c.s
@@ -285,6 +327,7 @@ src/include/cm_string.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/cm_string.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/cm_string.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/cm_string.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/cm_string.c.s
 .PHONY : src/include/cm_string.c.s
 
 src/include/utility.o: src/include/utility.c.o
@@ -295,6 +338,7 @@ src/include/utility.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/utility.c.o
 .PHONY : src/include/utility.c.o
 
 src/include/utility.i: src/include/utility.c.i
@@ -305,6 +349,7 @@ src/include/utility.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/utility.c.i
 .PHONY : src/include/utility.c.i
 
 src/include/utility.s: src/include/utility.c.s
@@ -315,6 +360,7 @@ src/include/utility.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUI.dir/build.make CMakeFiles/GUI.dir/src/include/utility.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TUI.dir/build.make CMakeFiles/TUI.dir/src/include/utility.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/src/include/utility.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/src/include/utility.c.s
 .PHONY : src/include/utility.c.s
 
 # Help Target
@@ -328,12 +374,16 @@ help:
 	@echo "... GUI"
 	@echo "... TUI"
 	@echo "... netController"
+	@echo "... tuiNet"
 	@echo "... src/clients/GUI/GUIclient.o"
 	@echo "... src/clients/GUI/GUIclient.i"
 	@echo "... src/clients/GUI/GUIclient.s"
 	@echo "... src/clients/TUI/TUIclient.o"
 	@echo "... src/clients/TUI/TUIclient.i"
 	@echo "... src/clients/TUI/TUIclient.s"
+	@echo "... src/clients/tuiNet/tuiNet.o"
+	@echo "... src/clients/tuiNet/tuiNet.i"
+	@echo "... src/clients/tuiNet/tuiNet.s"
 	@echo "... src/database/dataController.o"
 	@echo "... src/database/dataController.i"
 	@echo "... src/database/dataController.s"

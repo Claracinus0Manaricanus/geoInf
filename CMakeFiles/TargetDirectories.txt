@@ -1,5 +1,6 @@
 /home/cm/codes/c++/geoInf/CMakeFiles/GUI.dir
 /home/cm/codes/c++/geoInf/CMakeFiles/TUI.dir
 /home/cm/codes/c++/geoInf/CMakeFiles/netController.dir
+/home/cm/codes/c++/geoInf/CMakeFiles/tuiNet.dir
 /home/cm/codes/c++/geoInf/CMakeFiles/edit_cache.dir
 /home/cm/codes/c++/geoInf/CMakeFiles/rebuild_cache.dir

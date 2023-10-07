@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.o CMakeFiles/tuiNet.dir/src/include/utility.c.o CMakeFiles/tuiNet.dir/src/database/dataController.c.o CMakeFiles/tuiNet.dir/src/include/cm_string.c.o -o tuiNet  -lsqlite3 

@@ -47,4 +47,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/GUI.dir/DependInfo.cmake"
   "CMakeFiles/TUI.dir/DependInfo.cmake"
   "CMakeFiles/netController.dir/DependInfo.cmake"
+  "CMakeFiles/tuiNet.dir/DependInfo.cmake"
   )

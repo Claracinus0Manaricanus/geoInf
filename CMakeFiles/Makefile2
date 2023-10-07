@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /home/cm/codes/c++/geoInf
 all: CMakeFiles/GUI.dir/all
 all: CMakeFiles/TUI.dir/all
 all: CMakeFiles/netController.dir/all
+all: CMakeFiles/tuiNet.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ preinstall:
 clean: CMakeFiles/GUI.dir/clean
 clean: CMakeFiles/TUI.dir/clean
 clean: CMakeFiles/netController.dir/clean
+clean: CMakeFiles/tuiNet.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -155,6 +157,32 @@ netController: CMakeFiles/netController.dir/rule
 CMakeFiles/netController.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/netController.dir/build.make CMakeFiles/netController.dir/clean
 .PHONY : CMakeFiles/netController.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tuiNet.dir
+
+# All Build rule for target.
+CMakeFiles/tuiNet.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/cm/codes/c++/geoInf/CMakeFiles --progress-num=16,17,18,19,20 "Built target tuiNet"
+.PHONY : CMakeFiles/tuiNet.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tuiNet.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tuiNet.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cm/codes/c++/geoInf/CMakeFiles 0
+.PHONY : CMakeFiles/tuiNet.dir/rule
+
+# Convenience name for target.
+tuiNet: CMakeFiles/tuiNet.dir/rule
+.PHONY : tuiNet
+
+# clean rule for target.
+CMakeFiles/tuiNet.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tuiNet.dir/build.make CMakeFiles/tuiNet.dir/clean
+.PHONY : CMakeFiles/tuiNet.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
