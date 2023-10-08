@@ -14,6 +14,7 @@
 //constants
 #define VAL_READY 1
 #define VAL_DONE 2
+#define VAL_ERROR 3
 
 //network
 int TCPListener(uint32_t ip, uint16_t port);
@@ -33,6 +34,7 @@ int main(int argc, char** argv){
     //constants
     const int READY=VAL_READY;
     const int DONE=VAL_DONE;
+    const int ERROR=VAL_ERROR;
 
     //port
     uint16_t port=8080;
@@ -50,7 +52,7 @@ int main(int argc, char** argv){
 
     //vars
     int clsfd;//client socket file descriptor
-    int parseResult=0,argLength=0;
+    int parseResult=0,argLength=0,clientVal=0;
     struct tableElement dataHolder;
     char clientMessage[256]={0};//from client
     char serverMessage[1024]={0};//to client
@@ -64,6 +66,7 @@ int main(int argc, char** argv){
         //communication
         write(clsfd,&READY,sizeof(int));
         read(clsfd,clientMessage,256);//getting request
+        printf("%s\n",clientMessage);
         parseResult=parseRequest(clientMessage,&parseArgs,&argLength);
 
         for(int i=0;i<argLength;i++){
@@ -71,7 +74,21 @@ int main(int argc, char** argv){
         }
 
         switch(parseResult){
-
+            case COMMAND_GET:
+            break;
+            case COMMAND_SCAN://test code currently
+                write(clsfd,&argLength,sizeof(int));
+                for(int i=0;i<argLength;i++){
+                    clientVal=strlen(parseArgs[i]);
+                    write(clsfd,&clientVal,sizeof(int));
+                    write(clsfd,parseArgs[i],clientVal);
+                    read(clsfd,&clientVal,sizeof(int));
+                    if(clientVal==READY)continue;
+                    else break;
+                }
+            break;
+            default:
+            //write();//send ERROR
         }
 
         //disconnect client
