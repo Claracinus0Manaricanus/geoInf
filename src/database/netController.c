@@ -76,8 +76,9 @@ int main(int argc, char** argv){
 
         switch(parseResult){
             case COMMAND_GET:
+
             break;
-            case COMMAND_SCAN://test code currently
+            case COMMAND_SCAN://scans a table for element names
                 if(getTableElementNames(parseArgs[0],&names,&namesLength)!=0){
                     write(clsfd,&ERROR,sizeof(int));
                     break;
