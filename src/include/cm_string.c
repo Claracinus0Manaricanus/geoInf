@@ -14,6 +14,6 @@ char* cm_concat(char** addArray, unsigned int addArraySize){
         memcpy(&finalString[total],addArray[i],lengths[i]);
         total+=lengths[i];
     }
-
+    
     return finalString;
 }

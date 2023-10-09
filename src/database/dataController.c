@@ -60,6 +60,41 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
 }
 
 
+
+int getTableElementNames(char* tableName, char*** elementNames, int* size){//fills elementNames with tables name column values
+    //opening database
+    sqlite3* db;
+    if(sqlite3_open("src/database/geoInf.db",&db)!=SQLITE_OK)
+        return -1;
+
+    //code assembling
+    char* codeToAdd[3]={"select name from \0",tableName,";"};
+    char* code=cm_concat(codeToAdd,3);
+
+    //statement
+    sqlite3_stmt* STMT_Select;
+    sqlite3_prepare(db,code,-1,&STMT_Select,0);
+    free(code);//we are done with the code string
+
+    //reading data
+    int length=0,textSize=0;
+    char** results=NULL;
+    while(sqlite3_step(STMT_Select)==SQLITE_ROW){
+        length++;
+        textSize=sqlite3_column_bytes(STMT_Select, 0);
+        results=realloc(results,sizeof(char*)*length);
+        results[length-1]=calloc(textSize+1,sizeof(char));
+        memcpy(results[length-1],sqlite3_column_text(STMT_Select,0),textSize);
+    }
+
+    //returns
+    if(length==0)return -1;
+    (*size)=length;
+    (*elementNames)=results;
+    return 0;
+}
+
+
 //database input functions
 
 //needs error checking

@@ -12,9 +12,9 @@
 
 
 //constants
-#define VAL_READY 1
-#define VAL_DONE 2
-#define VAL_ERROR 3
+#define VAL_READY -3
+#define VAL_DONE -2
+#define VAL_ERROR -1
 
 const char* HELP_MESSAGE=
 "Tool for accessing geoInf server.\n"
@@ -68,8 +68,7 @@ int main(int argc, char** argv){
     char** vals=NULL;
     while(run){
         read(clsfd,&serverVal,sizeof(int));
-        printf("%d\n",serverVal);
-        if(serverVal==VAL_DONE)break;
+        if(serverVal==VAL_DONE||serverVal==VAL_ERROR)break;
         for(int i=0;i<serverVal;i++){
             //receiving
             read(clsfd,&length,sizeof(int));
@@ -91,6 +90,7 @@ int main(int argc, char** argv){
     }
 
     //termination
+    printf("\n");
     close(clsfd);
     return 0;
 }

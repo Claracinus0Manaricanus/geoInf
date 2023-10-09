@@ -12,9 +12,9 @@
 #include <arpa/inet.h>
 
 //constants
-#define VAL_READY 1
-#define VAL_DONE 2
-#define VAL_ERROR 3
+#define VAL_READY -3
+#define VAL_DONE -2
+#define VAL_ERROR -1
 
 //network
 int TCPListener(uint32_t ip, uint16_t port);
@@ -57,6 +57,7 @@ int main(int argc, char** argv){
     char clientMessage[256]={0};//from client
     char serverMessage[1024]={0};//to client
     char** parseArgs=NULL;
+    char** names=NULL;int namesLength=0;
 
     //answering requests
     while(run){
@@ -69,26 +70,30 @@ int main(int argc, char** argv){
         printf("%s\n",clientMessage);
         parseResult=parseRequest(clientMessage,&parseArgs,&argLength);
 
-        for(int i=0;i<argLength;i++){
+        /*for(int i=0;i<argLength;i++){//for debug
             printf("%s\n",parseArgs[i]);
-        }
+        }*/
 
         switch(parseResult){
             case COMMAND_GET:
             break;
             case COMMAND_SCAN://test code currently
-                write(clsfd,&argLength,sizeof(int));
-                for(int i=0;i<argLength;i++){
-                    clientVal=strlen(parseArgs[i]);
+                if(getTableElementNames(parseArgs[0],&names,&namesLength)!=0){
+                    write(clsfd,&ERROR,sizeof(int));
+                    break;
+                }
+                write(clsfd,&namesLength,sizeof(int));
+                for(int i=0;i<namesLength;i++){
+                    clientVal=strlen(names[i]);
                     write(clsfd,&clientVal,sizeof(int));
-                    write(clsfd,parseArgs[i],clientVal);
+                    write(clsfd,names[i],clientVal);
                     read(clsfd,&clientVal,sizeof(int));
                     if(clientVal==READY)continue;
                     else break;
                 }
             break;
             default:
-            //write();//send ERROR
+            write(clsfd,&ERROR,sizeof(int));//send ERROR
         }
 
         //disconnect client
