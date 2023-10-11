@@ -60,6 +60,9 @@ int main(int argc, char** argv){
     read(clsfd,&serverVal,sizeof(int));//seeing if server is ready
     if(serverVal==VAL_READY){
         write(clsfd,reqMessage,256);
+    }else{
+        close(clsfd);
+        return -1;
     }
 
     //communication
