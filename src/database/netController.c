@@ -16,6 +16,8 @@
 #define VAL_DONE -2
 #define VAL_ERROR -1
 
+#define WAITFOR 999999
+
 //network
 int TCPListener(uint32_t ip, uint16_t port);
 //signal utility
@@ -52,7 +54,7 @@ int main(int argc, char** argv){
 
     //vars
     int clsfd;//client socket file descriptor
-    int parseResult=0,argLength=0,clientVal=0;
+    int parseResult=0,argLength=0,clientVal=0,counter=0;
     struct tableElement dataHolder;
     char clientMessage[256]={0};//from client
     char serverMessage[1024]={0};//to client
@@ -61,44 +63,75 @@ int main(int argc, char** argv){
 
     //answering requests
     while(run){
+        //resetting
+        counter=0;
+        parseResult=VAL_ERROR;
+        clientVal=VAL_DONE;
+
         //client connection
-        clsfd=accept(TCP_Server,NULL,NULL);
+        printf("Waiting for a Client.\n");
+        while((clsfd=accept(TCP_Server,NULL,NULL))==-1){
+            
+        }
+        printf("Client connected. Sending VAL_READY.\n");
 
         //communication
         write(clsfd,&READY,sizeof(int));
-        read(clsfd,clientMessage,256);//getting request
-        printf("%s\n",clientMessage);
-        parseResult=parseRequest(clientMessage,&parseArgs,&argLength);
+        while(recv(clsfd,clientMessage,256,MSG_DONTWAIT)==-1){//getting request //change with socket option SO_RCVTIMEO
+            if(counter>WAITFOR){
+                clientVal=VAL_ERROR;//to stop sending data
+                printf("Failed acquiring request from client. Closing connection.\n");
+                break;
+            }
+            counter++;
+        }
+        counter=0;
 
-        /*for(int i=0;i<argLength;i++){//for debug
-            printf("%s\n",parseArgs[i]);
-        }*/
+        if(clientVal!=VAL_ERROR){
+            printf("Client request:\n%s\n",clientMessage);
+            parseResult=parseRequest(clientMessage,&parseArgs,&argLength);
+        }
 
         switch(parseResult){
             case COMMAND_GET:
 
             break;
             case COMMAND_SCAN://scans a table for element names
-                if(getTableElementNames(parseArgs[0],&names,&namesLength)!=0){
-                    write(clsfd,&ERROR,sizeof(int));
+                if(argLength<1)
                     break;
-                }
+                if(getTableElementNames(parseArgs[0],&names,&namesLength)!=0)
+                    break;
+
                 write(clsfd,&namesLength,sizeof(int));
                 for(int i=0;i<namesLength;i++){
                     clientVal=strlen(names[i]);
+
                     write(clsfd,&clientVal,sizeof(int));
+                    printf("sending: %s\n",names[i]);
                     write(clsfd,names[i],clientVal);
-                    read(clsfd,&clientVal,sizeof(int));
+
+                    while(recv(clsfd,&clientVal,sizeof(int),MSG_DONTWAIT)==-1){
+                        if(counter>WAITFOR){
+                            clientVal=VAL_ERROR;
+                            break;
+                        }
+                        counter++;
+                    }counter=0;
+
                     if(clientVal==READY)continue;
                     else break;
                 }
             break;
-            default:
-            write(clsfd,&ERROR,sizeof(int));//send ERROR
         }
 
         //disconnect client
-        write(clsfd,&DONE,sizeof(int));
+        if(clientVal==VAL_READY){
+            printf("Done. Disconnecting client.\n");
+            write(clsfd,&DONE,sizeof(int));
+        }else{
+            printf("An error occured sending VAL_ERROR.\n");
+            write(clsfd,&ERROR,sizeof(int));
+        }
         close(clsfd);
     }
     
@@ -160,7 +193,6 @@ int TCPListener(uint32_t ip, uint16_t port){
 //signal utility
 void intSignal(int sigVal){
     run=0;
-    raise(SIGTERM);
 }
 
 
@@ -170,13 +202,17 @@ void intSignal(int sigVal){
 //parsing
 int parseRequest(const char* request, char*** retArgs, int* size){
     //vars
-    int i=0,posTmp=0,returnVal=-1;
-    char tmpArr[64]={0};
+    int i=0,posTmp=0,returnVal=VAL_ERROR;
+    char tmpArr[256]={0};
     char** argArr=NULL;//argument holder
     char tmp=0,stage=-1;
     //start
     tmp=request[i];
-    while(tmp!=';'){
+    while(tmp!=';'&&i<256){
+        if(tmp==0){
+            returnVal=VAL_ERROR;
+            break;
+        }
         i++;
         if(tmp!=':'){
             tmpArr[posTmp]=tmp;

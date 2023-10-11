@@ -72,6 +72,7 @@ int main(int argc, char** argv){
         for(int i=0;i<serverVal;i++){
             //receiving
             read(clsfd,&length,sizeof(int));
+            if(length==VAL_ERROR){run=0;break;}
             read(clsfd,clientMessage,length);
             //assigning
             vals=realloc(vals,sizeof(char*)*(i+1));
@@ -85,11 +86,14 @@ int main(int argc, char** argv){
     }
 
     //output
-    for(int i=0;i<length;i++){
-        printf("%s\n",vals[i]);
+    if(length!=VAL_ERROR){
+        for(int i=0;i<length;i++){
+            printf("%s\n",vals[i]);
+        }
     }
 
     //termination
+    if(serverVal==VAL_ERROR||length==VAL_ERROR)printf("Received an error. Exiting.\n");
     printf("\n");
     close(clsfd);
     return 0;
