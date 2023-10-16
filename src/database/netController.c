@@ -10,13 +10,14 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <sys/time.h>
 
 //constants
 #define VAL_READY -3
 #define VAL_DONE -2
 #define VAL_ERROR -1
 
-#define WAITFOR 999999
+#define WAITFOR 5
 
 //network
 int TCPListener(uint32_t ip, uint16_t port);
@@ -43,53 +44,43 @@ int main(int argc, char** argv){
     if(argc>1){//if an argument is given
         port=(uint16_t)atoi(argv[1]);
     }
-
+    
     //TCP setup
-    uint32_t ipAddr=0;
-    inet_pton(AF_INET,"0.0.0.0",&ipAddr);
-    int TCP_Server=TCPListener(ipAddr,(port<<8)+(port>>8));
+    int TCP_Server=TCPListener(0,(port<<8)+(port>>8));
 
     //signal handler
     signal(SIGINT,intSignal);
 
     //vars
     int clsfd;//client socket file descriptor
-    int parseResult=0,argLength=0,clientVal=0,counter=0;
+    int parseResult=0,argLength=0,clientVal=0,error=0;
     struct tableElement dataHolder;
-    char clientMessage[256]={0};//from client
-    char serverMessage[1024]={0};//to client
+    setZeroGeoObj(&dataHolder);
+    char networkBuffer[1024]={0};//for communication
     char** parseArgs=NULL;
-    char** names=NULL;int namesLength=0;
+    char** queryData=NULL;int dataLength=0;
 
     //answering requests
     while(run){
         //resetting
-        counter=0;
+        error=0;
         parseResult=VAL_ERROR;
-        clientVal=VAL_DONE;
 
         //client connection
         printf("Waiting for a Client.\n");
-        while((clsfd=accept(TCP_Server,NULL,NULL))==-1){
-            
-        }
+        while((clsfd=accept(TCP_Server,NULL,NULL))==-1){}
         printf("Client connected. Sending VAL_READY.\n");
 
         //communication
         write(clsfd,&READY,sizeof(int));
-        while(recv(clsfd,clientMessage,256,MSG_DONTWAIT)==-1){//getting request //change with socket option SO_RCVTIMEO
-            if(counter>WAITFOR){
-                clientVal=VAL_ERROR;//to stop sending data
-                printf("Failed acquiring request from client. Closing connection.\n");
-                break;
-            }
-            counter++;
+        if(recv(clsfd,networkBuffer,256,0)==-1){//getting request
+            error=1;//raise error integer
+            printf("Failed acquiring request from client. Closing connection.\n");
         }
-        counter=0;
 
-        if(clientVal!=VAL_ERROR){
-            printf("Client request:\n%s\n",clientMessage);
-            parseResult=parseRequest(clientMessage,&parseArgs,&argLength);
+        if(!error){
+            printf("Client request: %s\n",networkBuffer);
+            parseResult=parseRequest(networkBuffer,&parseArgs,&argLength);
         }
 
         switch(parseResult){
@@ -99,24 +90,20 @@ int main(int argc, char** argv){
             case COMMAND_SCAN://scans a table for element names
                 if(argLength<1)
                     break;
-                if(getTableElementNames(parseArgs[0],&names,&namesLength)!=0)
+                if(getTableElementNames(parseArgs[0],&queryData,&dataLength)!=0)
                     break;
 
-                write(clsfd,&namesLength,sizeof(int));
-                for(int i=0;i<namesLength;i++){
-                    clientVal=strlen(names[i]);
+                write(clsfd,&dataLength,sizeof(int));
+                for(int i=0;i<dataLength;i++){
+                    clientVal=strlen(queryData[i]);
 
                     write(clsfd,&clientVal,sizeof(int));
-                    printf("sending: %s\n",names[i]);
-                    write(clsfd,names[i],clientVal);
+                    printf("sending: %s\n",queryData[i]);
+                    write(clsfd,queryData[i],clientVal);
 
-                    while(recv(clsfd,&clientVal,sizeof(int),MSG_DONTWAIT)==-1){
-                        if(counter>WAITFOR){
-                            clientVal=VAL_ERROR;
-                            break;
-                        }
-                        counter++;
-                    }counter=0;
+                    if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
+                        clientVal=VAL_ERROR;
+                    }
 
                     if(clientVal==READY)continue;
                     else break;
@@ -138,7 +125,7 @@ int main(int argc, char** argv){
     //termination
     close(clsfd);
     close(TCP_Server);
-    //freeGeoObj(&dataHolder);
+    freeGeoObj(&dataHolder);
     return 0;
 }
 
@@ -157,9 +144,15 @@ int TCPListener(uint32_t ip, uint16_t port){
     }
 
     //socket options
-    int yes=1;
-    if(setsockopt(tmpSFD,SOL_SOCKET,SO_REUSEADDR,&yes,sizeof(int))==-1){
-        printf("setsockopt() failed!\nerrno: %d\n",errno);
+    int sockVal=1;
+    if(setsockopt(tmpSFD,SOL_SOCKET,SO_REUSEADDR,&sockVal,sizeof(int))==-1){
+        printf("setsockopt(SO_REUSEADDR) failed!\nerrno: %d\n",errno);
+    }
+    struct timeval waitTime;//timeout variable
+    waitTime.tv_sec=WAITFOR;
+    waitTime.tv_usec=0;
+    if(setsockopt(tmpSFD,SOL_SOCKET,SO_RCVTIMEO,&waitTime,sizeof(struct timeval))==-1){
+        printf("setsockopt(SO_RCVTIMEO) failed!\nerrno: %d\n",errno);
     }
     
     //address

@@ -91,6 +91,7 @@ CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/socket.h
+ /usr/include/sys/time.h
  /usr/include/sys/types.h
  /usr/include/unistd.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h

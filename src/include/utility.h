@@ -13,6 +13,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+//memory safety features
+int setZeroGeoObj(struct tableElement *toSet);
+
 //memory freeing
 int freeGeoObj(struct tableElement* toFree);//frees given geoObj struct
 

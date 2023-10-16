@@ -90,6 +90,7 @@ CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.o: src/clients/tuiNet/tuiNet.c
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/socket.h \
+  /usr/include/sys/time.h \
   /usr/include/sys/types.h \
   /usr/include/unistd.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h \
@@ -408,6 +409,8 @@ src/database/dataController.h:
 /usr/include/asm/posix_types_64.h:
 
 /usr/include/bits/types/locale_t.h:
+
+/usr/include/sys/time.h:
 
 /usr/include/bits/posix_opt.h:
 
