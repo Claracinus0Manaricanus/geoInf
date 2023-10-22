@@ -104,18 +104,19 @@ int main(int argc, char** argv){
 
                     write(clsfd,&clientVal,sizeof(int));
                     for(int i=0;i<4;i++){
-                        clientVal=strlen(queryData[i]);
+                        clientVal=(int)strlen(queryData[i]);
 
                         write(clsfd,&clientVal,sizeof(int));
                         printf("sending: %s\n",queryData[i]);
                         write(clsfd,queryData[i],clientVal);
-                        
+
                         if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
                             error=1;
                             break;
                         }
                     }
 
+                    free(queryData);
                     freeGeoObj(&dataHolder);
                 }
             break;
@@ -132,7 +133,7 @@ int main(int argc, char** argv){
 
                 write(clsfd,&dataLength,sizeof(int));
                 for(int i=0;i<dataLength;i++){
-                    clientVal=strlen(queryData[i]);
+                    clientVal=(int)strlen(queryData[i]);
 
                     write(clsfd,&clientVal,sizeof(int));
                     printf("sending: %s\n",queryData[i]);
@@ -160,14 +161,14 @@ int main(int argc, char** argv){
             write(clsfd,&DONE,sizeof(int));
         }
         close(clsfd);
-        //memory cleanup
-        free(parseArgs);
     }
     
     //termination
     close(clsfd);
     close(TCP_Server);
     freeGeoObj(&dataHolder);
+    //cleanup
+    free(parseArgs);
     return 0;
 }
 
@@ -243,7 +244,7 @@ int parseRequest(const char* request, char*** retArgs, int* size){
     char tmp=0,stage=-1;
     //start
     tmp=request[i];
-    while(tmp!=';'&&tmp!=0){
+    while(tmp!=';'&&i<256){
         if(tmp==0){
             returnVal=VAL_ERROR;
             break;
@@ -265,8 +266,8 @@ int parseRequest(const char* request, char*** retArgs, int* size){
                 break;
                 default:
                     argArr=realloc(argArr,sizeof(char*)*(stage+1));
-                    argArr[stage]=calloc(strlen(tmpArr)+1,sizeof(char));
-                    memcpy(argArr[stage],tmpArr,strlen(tmpArr));
+                    argArr[stage]=calloc((int)strlen(tmpArr)+1,sizeof(char));
+                    memcpy(argArr[stage],tmpArr,(int)strlen(tmpArr));
                     stage++;
                 break;
             }
@@ -275,7 +276,6 @@ int parseRequest(const char* request, char*** retArgs, int* size){
         tmp=request[i];
     }
     //return
-    free((*retArgs));
     (*retArgs)=argArr;
     (*size)=stage;
     return returnVal;
