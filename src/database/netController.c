@@ -55,7 +55,7 @@ int main(int argc, char** argv){
     int clsfd;//client socket file descriptor
     int parseResult=0,argLength=0,clientVal=0,error=0;
     struct tableElement dataHolder;
-    setZeroGeoObj(&dataHolder);
+    setNULLGeoObj(&dataHolder);
     char networkBuffer[1024]={0};//for communication
     char** parseArgs=NULL;
     char** queryData=NULL;int dataLength=0;
@@ -85,13 +85,50 @@ int main(int argc, char** argv){
 
         switch(parseResult){
             case COMMAND_GET:
+                if(argLength<2){
+                    error=1;
+                    break;
+                }
+                if(getFromTable(parseArgs[0],parseArgs[1],&dataHolder)!=0){
+                    write(clsfd,&ERROR,sizeof(int));
+                    error=1;
+                }else{
+                    clientVal=4;
 
+                    //for iterative usage
+                    queryData=(char**)calloc(4,sizeof(char*));
+                    queryData[0]=dataHolder.name;
+                    queryData[1]=dataHolder.climate;
+                    queryData[2]=dataHolder.soil;
+                    queryData[3]=dataHolder.flora;
+
+                    write(clsfd,&clientVal,sizeof(int));
+                    for(int i=0;i<4;i++){
+                        clientVal=strlen(queryData[i]);
+
+                        write(clsfd,&clientVal,sizeof(int));
+                        printf("sending: %s\n",queryData[i]);
+                        write(clsfd,queryData[i],clientVal);
+                        
+                        if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
+                            error=1;
+                            break;
+                        }
+                    }
+
+                    freeGeoObj(&dataHolder);
+                }
             break;
+
             case COMMAND_SCAN://scans a table for element names
-                if(argLength<1)
+                if(argLength<1){
+                    error=1;
                     break;
-                if(getTableElementNames(parseArgs[0],&queryData,&dataLength)!=0)
+                }
+                if(getTableElementNames(parseArgs[0],&queryData,&dataLength)!=0){
+                    error=1;
                     break;
+                }
 
                 write(clsfd,&dataLength,sizeof(int));
                 for(int i=0;i<dataLength;i++){
@@ -102,24 +139,29 @@ int main(int argc, char** argv){
                     write(clsfd,queryData[i],clientVal);
 
                     if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
-                        clientVal=VAL_ERROR;
+                        error=1;
+                        break;
                     }
-
-                    if(clientVal==READY)continue;
-                    else break;
                 }
+                free(queryData);
+            break;
+
+            case VAL_ERROR:
+            error=1;
             break;
         }
 
         //disconnect client
-        if(clientVal==VAL_READY){
-            printf("Done. Disconnecting client.\n");
-            write(clsfd,&DONE,sizeof(int));
-        }else{
+        if(error){
             printf("An error occured sending VAL_ERROR.\n");
             write(clsfd,&ERROR,sizeof(int));
+        }else{
+            printf("Done. Disconnecting client.\n");
+            write(clsfd,&DONE,sizeof(int));
         }
         close(clsfd);
+        //memory cleanup
+        free(parseArgs);
     }
     
     //termination
@@ -201,7 +243,7 @@ int parseRequest(const char* request, char*** retArgs, int* size){
     char tmp=0,stage=-1;
     //start
     tmp=request[i];
-    while(tmp!=';'&&i<256){
+    while(tmp!=';'&&tmp!=0){
         if(tmp==0){
             returnVal=VAL_ERROR;
             break;

@@ -42,6 +42,7 @@ CMakeFiles/GUI.dir/src/clients/GUI/GUIclient.c.o: src/clients/GUI/GUIclient.c \
 CMakeFiles/GUI.dir/src/database/dataController.c.o: src/database/dataController.c \
   src/include/T0.h \
   src/include/cm_string.h \
+  src/include/utility.h \
   src/database/dataController.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
@@ -215,8 +216,6 @@ CMakeFiles/GUI.dir/src/include/utility.c.o: src/include/utility.c \
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h
 
 
-src/include/utility.h:
-
 src/include/cm_string.c:
 
 /usr/include/sys/types.h:
@@ -232,6 +231,8 @@ src/include/cm_string.c:
 /usr/include/bits/waitstatus.h:
 
 /usr/include/bits/waitflags.h:
+
+/usr/include/bits/types/struct_timespec.h:
 
 /usr/include/bits/wchar.h:
 
@@ -303,6 +304,8 @@ src/include/utility.c:
 
 /usr/include/bits/floatn.h:
 
+src/include/utility.h:
+
 /usr/include/bits/stdint-intn.h:
 
 /usr/include/bits/types/__fpos64_t.h:
@@ -316,8 +319,6 @@ src/database/dataController.c:
 /usr/include/stdio.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h:
-
-/usr/include/bits/types/struct_timespec.h:
 
 src/clients/GUI/GUIclient.c:
 

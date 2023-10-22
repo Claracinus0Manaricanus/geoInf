@@ -99,6 +99,7 @@ CMakeFiles/tuiNet.dir/src/clients/tuiNet/tuiNet.c.o: src/clients/tuiNet/tuiNet.c
 CMakeFiles/tuiNet.dir/src/database/dataController.c.o: src/database/dataController.c \
   src/include/T0.h \
   src/include/cm_string.h \
+  src/include/utility.h \
   src/database/dataController.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
@@ -272,8 +273,6 @@ CMakeFiles/tuiNet.dir/src/include/utility.c.o: src/include/utility.c \
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h
 
 
-src/include/utility.h:
-
 src/include/utility.c:
 
 src/include/cm_string.c:
@@ -283,6 +282,8 @@ src/include/cm_string.c:
 /usr/include/sqlite3.h:
 
 /usr/include/bits/wchar.h:
+
+src/include/utility.h:
 
 src/include/cm_string.h:
 

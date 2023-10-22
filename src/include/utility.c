@@ -1,7 +1,7 @@
 #include "utility.h"
 
 //memory safety features
-int setZeroGeoObj(struct tableElement *toSet){
+int setNULLGeoObj(struct tableElement *toSet){
     toSet->name=NULL;
     toSet->climate=NULL;
     toSet->soil=NULL;
@@ -17,6 +17,7 @@ int freeGeoObj(struct tableElement* toFree){
     free(toFree->soil);
     free(toFree->flora);
     free(toFree->image);
+    setNULLGeoObj(toFree);
     return 0;
 }
 

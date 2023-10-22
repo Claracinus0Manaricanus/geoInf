@@ -1,5 +1,6 @@
 #include "dataController.h"
 #include "../include/cm_string.h"
+#include "../include/utility.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -28,18 +29,14 @@ int getFromTable(char* tableName, char* objectName, struct tableElement* ret){
         //expressing failure (changes if results found)
         //it is set beforehand for safety and optimization purposes
         ret->ID=-1;
-        ret->name=NULL;
-        ret->climate=NULL;
-        ret->soil=NULL;
-        ret->flora=NULL;
-        ret->image=NULL;
+        setNULLGeoObj(ret);
     if(isFound){//same for all geography tables
         //ID
         ret->ID=sqlite3_column_int(STMT_Select,0);
         //name
         ret->name=calloc(1,sqlite3_column_bytes(STMT_Select,1));
         memcpy(ret->name,sqlite3_column_text(STMT_Select,1),sqlite3_column_bytes(STMT_Select,1));
-        //explanation (4 because of reasons)
+        //climate
         ret->climate=calloc(1,sqlite3_column_bytes(STMT_Select,2));
         memcpy(ret->climate,sqlite3_column_text(STMT_Select,2),sqlite3_column_bytes(STMT_Select,2));
         //soilType
@@ -86,6 +83,10 @@ int getTableElementNames(char* tableName, char*** elementNames, int* size){//fil
         results[length-1]=calloc(textSize+1,sizeof(char));
         memcpy(results[length-1],sqlite3_column_text(STMT_Select,0),textSize);
     }
+
+    //cleanup
+    sqlite3_finalize(STMT_Select);
+    sqlite3_close(db);
 
     //returns
     if(length==0)return -1;

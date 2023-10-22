@@ -73,6 +73,7 @@ CMakeFiles/TUI.dir/src/clients/TUI/TUIclient.c.o: src/clients/TUI/TUIclient.c \
 CMakeFiles/TUI.dir/src/database/dataController.c.o: src/database/dataController.c \
   src/include/T0.h \
   src/include/cm_string.h \
+  src/include/utility.h \
   src/database/dataController.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
