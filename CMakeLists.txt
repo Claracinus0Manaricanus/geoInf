@@ -7,5 +7,5 @@ add_executable("tuiNet" "src/clients/tuiNet/tuiNet.c" "src/include/utility.c" "s
 include_directories(/usr/include)
 target_link_libraries(GUI PUBLIC GL GLEW glfw sqlite3)
 target_link_libraries(TUI PUBLIC sqlite3)
-target_link_libraries(netController PUBLIC GL GLEW glfw sqlite3)
+target_link_libraries(netController PUBLIC sqlite3)
 target_link_libraries(tuiNet PUBLIC sqlite3)

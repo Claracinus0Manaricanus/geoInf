@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/netController.dir/src/include/utility.c.o CMakeFiles/netController.dir/src/database/netController.c.o CMakeFiles/netController.dir/src/database/dataController.c.o CMakeFiles/netController.dir/src/include/cm_string.c.o -o netController  -lGL -lGLEW -lglfw -lsqlite3 
+/usr/bin/cc CMakeFiles/netController.dir/src/include/utility.c.o CMakeFiles/netController.dir/src/database/netController.c.o CMakeFiles/netController.dir/src/database/dataController.c.o CMakeFiles/netController.dir/src/include/cm_string.c.o -o netController  -lsqlite3 
