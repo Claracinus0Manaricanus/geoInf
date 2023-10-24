@@ -59,6 +59,7 @@ int main(int argc, char** argv){
     char networkBuffer[1024]={0};//for communication
     char** parseArgs=NULL;
     char** queryData=NULL;int dataLength=0;
+    struct sockaddr_in clientAddr;uint32_t clientAddrLen=0;
 
     //answering requests
     while(run){
@@ -68,8 +69,10 @@ int main(int argc, char** argv){
 
         //client connection
         printf("Waiting for a Client.\n");
-        while((clsfd=accept(TCP_Server,NULL,NULL))==-1){}
-        printf("Client connected. Sending VAL_READY.\n");
+        while((clsfd=accept(TCP_Server,(struct sockaddr*)&clientAddr,&clientAddrLen))==-1){}
+        printf("Client connected.\n");
+        printf("IPV4: %s\n",inet_ntoa(clientAddr.sin_addr));
+        printf("Sending VAL_READY.\n");
 
         //communication
         write(clsfd,&READY,sizeof(int));
