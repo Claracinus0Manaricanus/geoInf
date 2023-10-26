@@ -40,7 +40,7 @@ int main(int argc, char** argv){
     const int ERROR=VAL_ERROR;
 
     //port
-    uint16_t port=8080;
+    uint16_t port=8888;
     if(argc>1){//if an argument is given
         port=(uint16_t)atoi(argv[1]);
     }
@@ -51,6 +51,9 @@ int main(int argc, char** argv){
     //signal handler
     signal(SIGINT,intSignal);
 
+    //Log file
+    FILE* logger=fopen("log.txt","a+");
+
     //vars
     int clsfd;//client socket file descriptor
     int parseResult=0,argLength=0,clientVal=0,error=0;
@@ -59,6 +62,7 @@ int main(int argc, char** argv){
     char networkBuffer[1024]={0};//for communication
     char** parseArgs=NULL;
     char** queryData=NULL;int dataLength=0;
+    char* ipv4ClientAddr=NULL;
     struct sockaddr_in clientAddr;uint32_t clientAddrLen=0;
 
     //answering requests
@@ -71,7 +75,8 @@ int main(int argc, char** argv){
         printf("Waiting for a Client.\n");
         while((clsfd=accept(TCP_Server,(struct sockaddr*)&clientAddr,&clientAddrLen))==-1){}
         printf("Client connected.\n");
-        printf("IPV4: %s\n",inet_ntoa(clientAddr.sin_addr));
+        ipv4ClientAddr=inet_ntoa(clientAddr.sin_addr);
+        printf("IPV4: %s\n",ipv4ClientAddr);
         printf("Sending VAL_READY.\n");
 
         //communication
@@ -82,6 +87,11 @@ int main(int argc, char** argv){
         }
 
         if(!error){
+            fputc('\n',logger);
+            fputs(ipv4ClientAddr,logger);
+            fputc(':',logger);
+            fputc(' ',logger);
+            fputs(networkBuffer,logger);
             printf("Client request: %s\n",networkBuffer);
             parseResult=parseRequest(networkBuffer,&parseArgs,&argLength);
         }
@@ -93,7 +103,7 @@ int main(int argc, char** argv){
                     break;
                 }
                 if(getFromTable(parseArgs[0],parseArgs[1],&dataHolder)!=0){
-                    write(clsfd,&ERROR,sizeof(int));
+                    send(clsfd,&ERROR,sizeof(int),MSG_NOSIGNAL);
                     error=1;
                 }else{
                     clientVal=4;
@@ -105,13 +115,13 @@ int main(int argc, char** argv){
                     queryData[2]=dataHolder.soil;
                     queryData[3]=dataHolder.flora;
 
-                    write(clsfd,&clientVal,sizeof(int));
+                    send(clsfd,&clientVal,sizeof(int),MSG_NOSIGNAL);
                     for(int i=0;i<4;i++){
                         clientVal=(int)strlen(queryData[i]);
 
-                        write(clsfd,&clientVal,sizeof(int));
+                        send(clsfd,&clientVal,sizeof(int),MSG_NOSIGNAL);
                         printf("sending: %s\n",queryData[i]);
-                        write(clsfd,queryData[i],clientVal);
+                        send(clsfd,queryData[i],clientVal,MSG_NOSIGNAL);
 
                         if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
                             error=1;
@@ -134,13 +144,13 @@ int main(int argc, char** argv){
                     break;
                 }
 
-                write(clsfd,&dataLength,sizeof(int));
+                send(clsfd,&dataLength,sizeof(int),MSG_NOSIGNAL);
                 for(int i=0;i<dataLength;i++){
                     clientVal=(int)strlen(queryData[i]);
 
-                    write(clsfd,&clientVal,sizeof(int));
+                    send(clsfd,&clientVal,sizeof(int),MSG_NOSIGNAL);
                     printf("sending: %s\n",queryData[i]);
-                    write(clsfd,queryData[i],clientVal);
+                    send(clsfd,queryData[i],clientVal,MSG_NOSIGNAL);
 
                     if(recv(clsfd,&clientVal,sizeof(int),0)==-1){
                         error=1;
@@ -158,15 +168,16 @@ int main(int argc, char** argv){
         //disconnect client
         if(error){
             printf("An error occured sending VAL_ERROR.\n");
-            write(clsfd,&ERROR,sizeof(int));
+            send(clsfd,&ERROR,sizeof(int),MSG_NOSIGNAL);
         }else{
             printf("Done. Disconnecting client.\n");
-            write(clsfd,&DONE,sizeof(int));
+            send(clsfd,&DONE,sizeof(int),MSG_NOSIGNAL);
         }
         close(clsfd);
     }
     
     //termination
+    fclose(logger);
     close(clsfd);
     close(TCP_Server);
     freeGeoObj(&dataHolder);

@@ -1,20 +1,33 @@
 use yew::prelude::*;
 use yew::events::*;
+use gloo_console::log;
 
-#[function_component(App)]
-fn app()->Html{
-    let cuteVar:&str="yep";
-    html!{
-        <>
-            <div style="inline-size:50%;block-size:100%;background-color:rgba(154,143,200,0.5);padding:10px;">
-                <h1>{"DEV V"}</h1>
-                <p style="color:red;padding:4px;">{cuteVar}</p>
-                <button>{"place of text for thy button"}</button>
-            </div>
-        </>
-    }
-}
+/*struct TableElement{
+    ID:i32,
+    name:String,
+    climate:String,
+    soil:String,
+    image:String,
+}*/
+
 
 fn main() {
     yew::Renderer::<App>::new().render();
+}
+
+
+#[function_component(App)]
+fn app()->Html{
+    let mut cuteVar:i32=0;
+
+    let numIncreaser=Callback::from(move|event:MouseEvent|{log!("de")});
+
+    html!{
+        <>
+        <div style="position:fixed;left:45%;">
+            <p style="font-size:34px;">{cuteVar}</p>
+            <button style="padding-left:50px;padding-right:50px;" onclick={numIncreaser}><p style="font-size:24px;">{"+1"}</p></button>
+        </div>
+        </>
+    }
 }
